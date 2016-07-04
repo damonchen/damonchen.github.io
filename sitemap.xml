@@ -3,7 +3,22 @@
   
   <url>
     <loc>http://damon121212.com/</loc>
-    <lastmod>2016-07-04T16:10:09+08:00</lastmod>
+    <lastmod>2016-07-04T22:11:39+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://damon121212.com/blog/2016/07/ugly-go-polymorphic/</loc>
+    <lastmod>2016-07-04T22:11:39+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://damon121212.com/blog/2016/07/golang-encrypt-sample/</loc>
+    <lastmod>2016-07-04T22:05:31+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://damon121212.com/blog/2016/07/daemon-process/</loc>
+    <lastmod>2016-07-04T22:00:09+08:00</lastmod>
   </url>
   
   <url>

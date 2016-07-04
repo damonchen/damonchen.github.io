@@ -89,6 +89,95 @@
 
 <header>
     <h1 class="entry-title">
+        <a href="http://damon121212.com/blog/2016/07/ugly-go-polymorphic/">golang的一个丑陋实现</a>
+    </h1>
+    <p class="meta">Jul 4, 2016
+         - 1 minute read 
+         - <a href="http://damon121212.com/blog/2016/07/ugly-go-polymorphic/#disqus_thread">Comments</a>
+
+        
+    </p>
+</header>
+
+
+        
+          <p>好多些天前，我在Golang实践群里问了下面代码的问题： package main import &quot;fmt&quot; type Aer interface{ Name()string PrintName() } type A struct { } func (a *A) Name() string { return &quot;a&quot; } func (a *A) PrintName() { fmt.Println(a.Name()) } type B struct { A } func (b *B) Name() string { return &quot;b&quot; } func getAer() Aer { return &amp;B{} } func main() { a := getAer() a.printName() } 这个实现中，Go中输出出的是a，这个实现违反了通常C++，Java，Python中会输出b的实现，由于上述几个语言的思维习惯已经形成，那么这个实现就会导致很多意想不到的事情。 昨儿个在Golang实践群中，有赞的兄弟（这位兄弟知道我提的上面的问题，并说这个是Go的实现方式）就问到了，在UnmarshalJSON的时候，为何Test字段没有被赋值，并在Go中提了issue 他的代码如下： package main import ( &quot;encoding/json&quot;</p>
+
+          
+              <footer>
+                  <a href="http://damon121212.com/blog/2016/07/ugly-go-polymorphic/" rel="full-article">Read On &rarr;</a>
+              </footer>
+          
+
+        
+
+    </article>
+    
+    <article>
+
+        
+        
+
+<header>
+    <h1 class="entry-title">
+        <a href="http://damon121212.com/blog/2016/07/golang-encrypt-sample/">golang中几种加密方式的处理</a>
+    </h1>
+    <p class="meta">Jul 4, 2016
+         - 2 minute read 
+         - <a href="http://damon121212.com/blog/2016/07/golang-encrypt-sample/#disqus_thread">Comments</a>
+
+        
+    </p>
+</header>
+
+
+        
+          <p>缘由 在与第三方平台进行接入的时候，通常会存在一些签名或者加密的处理，在进行开发的时候，因为语言的 不同，需要按照规范进行相应处理。 DES加解密 DES：https://en.wikipedia.org/wiki/Data_Encryption_Standard golang中的标准库crypto/des中有DES的实现，但是golang库的描述比较简单，如果不熟悉DES的加密规则，是不容易 进行相应代码编写的，与第三方进行不同语言之间的加密与解密时，也容易混淆，出现错误。 DES区分为CBC和EBC加密模式，并且有不同的填充方式。 CBC（等）：https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation Padding：https://en.wikipedia.org/wiki/Padding_(cryptography) 注意 PKCS#5 padding is identical to PKCS#7 padding 所以对不同的平台与语言进行DES加解密对接时，需要知道对方的是采用何种加密模式以及何种填充方式： Windows 默认是CBC模式，CryptSetKeyParam函数，openssl 函数名中直接表明 Java 中如果Cipher.getInstance()中不填写，默认是DES/ECB/PKCS5Padding C# 中默认是CBC模式，PKCS7Padding(PKCS5Padding) golang默认提供的是CBC模式，所以对于ECB模式，需要自己编写代码 PKCS5Padding与PKCS5Unpadding func PKCS5Padding(ciphertext []byte, blockSize int) []byte { padding := blockSize - len(ciphertext)%blockSize padtext := bytes.Repeat([]byte{byte(padding)}, padding) return append(ciphertext, padtext...) } func PKCS5Unpadding(origData []byte) []byte { length := len(origData) unpadding := int(origData[length-1]) return origData[:(length - unpadding)] } ECB加密模式 block, err := des.NewCipher(key) if err != nil { ...</p>
+
+          
+              <footer>
+                  <a href="http://damon121212.com/blog/2016/07/golang-encrypt-sample/" rel="full-article">Read On &rarr;</a>
+              </footer>
+          
+
+        
+
+    </article>
+    
+    <article>
+
+        
+        
+
+<header>
+    <h1 class="entry-title">
+        <a href="http://damon121212.com/blog/2016/07/daemon-process/">linux标准daemon编写方式</a>
+    </h1>
+    <p class="meta">Jul 4, 2016
+         - 1 minute read 
+         - <a href="http://damon121212.com/blog/2016/07/daemon-process/#disqus_thread">Comments</a>
+
+        
+    </p>
+</header>
+
+
+        
+          <p>daemon定义 运行在后台的程序，通常不需要与用户进行交互的。 任何父进程id是0的通常是kernel进程，作为系统启动的一部分，除了init是用户态的命令。 规则 第一件事情是调用umask设置文件模型的mask为0，文件mode creation mask可以被进程继承，但daemon进程需要创建文件时，需要特殊的权限。 调用fork，退出父进程exit，这可以做几件事情，首先，daemon将使用shell命令行启动，其次，子进程继承了process group id，但获取一个新的id，因此我们可以确保子进程不会是一个process group leader，为调用setsid做准备。 调用setsid创建一个新的session。该进程开始成为一个新的session的session leader，然后成为新的process group的process group leader，并且没有controlling terminal。 一些基于System V的用户推荐再fork一下，第二个child仍旧是一个daemon，然后保证该daemon不是一个session leader，在System V规则下阻止得到一个控制终端。 避免获取一个终端，使用O_NOCTTY来确保打开一个非终端设备。 修改当前目录为根目录（即/），为房子daemon存在于mounted file system中，系统重启时，文件系统不能够unmounted。 不需要的文件描述符应该关闭，阻止从parent中继承下来的文件描述符。 由于没有终端的缘故，因此需要将文件描述符0，1和2将切换到/dev/null。</p>
+
+          
+
+        
+
+    </article>
+    
+    <article>
+
+        
+        
+
+<header>
+    <h1 class="entry-title">
         <a href="http://damon121212.com/blog/2016/07/start/">start</a>
     </h1>
     <p class="meta">Jul 4, 2016
@@ -172,6 +261,18 @@
     <section class="even">
       <h1>Recent Posts</h1>
       <ul id="recent_posts">
+        
+          <li class="post">
+            <a href="/blog/2016/07/ugly-go-polymorphic/">golang的一个丑陋实现</a>
+          </li>
+        
+          <li class="post">
+            <a href="/blog/2016/07/golang-encrypt-sample/">golang中几种加密方式的处理</a>
+          </li>
+        
+          <li class="post">
+            <a href="/blog/2016/07/daemon-process/">linux标准daemon编写方式</a>
+          </li>
         
           <li class="post">
             <a href="/blog/2016/07/start/">start</a>
