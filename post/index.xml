@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Damon小站</title>
+    <link>http://damon121212.com/post/</link>
+    <description>Recent content in Posts on Damon小站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 04 Jul 2016 16:10:09 +0800</lastBuildDate>
+    <atom:link href="http://damon121212.com/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>start</title>
+      <link>http://damon121212.com/blog/2016/07/start/</link>
+      <pubDate>Mon, 04 Jul 2016 16:10:09 +0800</pubDate>
+      
+      <guid>http://damon121212.com/blog/2016/07/start/</guid>
+      <description>&lt;p&gt;星辰大海，扬帆了。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
