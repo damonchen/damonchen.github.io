@@ -19,7 +19,7 @@
 
 
   
-  <title>golang的一个丑陋实现</title>
+  <title>golang routine id</title>
 
   
   
@@ -92,11 +92,11 @@
 
 <header>
     <h1 class="entry-title">
-         golang的一个丑陋实现 
+         golang routine id 
     </h1>
-    <p class="meta">Jul 4, 2016
+    <p class="meta">Jul 5, 2016
          - 1 minute read 
-         - <a href="http://damon121212.com/blog/2016/07/ugly-go-polymorphic/#disqus_thread">Comments</a>
+         - <a href="http://damon121212.com/blog/2016/07/golang-routine-id/#disqus_thread">Comments</a>
 
         
     </p>
@@ -107,102 +107,30 @@
           
           
           
-          <p>好多些天前，我在<code>Golang实践群</code>里问了下面代码的问题：</p>
+          <p>在<code>Go</code>中，系统是不提供<code>goroutine</code>的<code>id</code>给外界的，丫的认为这事情不应该提供给用户来使用。</p>
 
-<pre><code class="language-golang">package main
+<p>可有时候，实在是觉得这个东西必须得有呀，比方说后台开了个<code>goroutine</code>进行<code>http</code>请求的处理，这个免不了要打个日志什么的，
+当并发量稍微大点的时候，就会发现这些信息的输出就交叉错乱在一起了。怎么区分。</p>
 
-import &quot;fmt&quot;
+<p>一种方案是在<code>http</code>请求的时候，生成一个<code>context</code>的东西，里面有个值来表示是这个<code>goroutine</code>，然后打日志的时候将这个值输出来。
+这种方案的问题是：你得将这个<code>context</code>显示的一路传递下去，显然这个这很多时候会很痛苦。</p>
 
-type Aer interface{
-    Name()string
-    PrintName()
-}
+<p>另一种方案是如果系统能够提供一个标识来表明这个<code>goroutine</code>的信息，那么就不必要这么麻烦了。所以考虑之后，决定采用这种获取系统的<code>goroutine id</code>的方案。</p>
 
-type A struct {
-}
+<p><code>go1.6</code>中具体方法是在<code>src/runtime/proc.go</code>尾部添加</p>
 
-func (a *A) Name() string {
-    return &quot;a&quot;
-}
-
-func (a *A) PrintName() {
-    fmt.Println(a.Name())
-}
-
-type B struct {
-    A
-}
-
-func (b *B) Name() string {
-    return &quot;b&quot;
-}
-
-func getAer() Aer {
-    return &amp;B{}
-}
-
-func main() {
-    a := getAer()
-    a.printName()
+<pre><code class="language-golang">
+// export Goid
+func Goid() int64 {
+    _g_ := getg()
+    return _g_.goid
 }
 
 </code></pre>
 
-<p>这个实现中，<code>Go</code>中输出出的是a，这个实现违反了通常<code>C++</code>，<code>Java</code>，<code>Python</code>中会输出b的实现，由于上述几个语言的思维习惯已经形成，那么这个实现就会导致很多意想不到的事情。</p>
+<p>重新编译生成对应的<code>go</code>编译器（最好用<code>go1.4</code>来编译，省事），然后就可以在代码中用<code>runtime.Goid</code>获取到对应的<code>id</code>了。</p>
 
-<p>昨儿个在<code>Golang实践群</code>中，有赞的兄弟（这位兄弟知道我提的上面的问题，并说这个是<code>Go</code>的实现方式）就问到了，在<code>UnmarshalJSON</code>的时候，为何Test字段没有被赋值，并在<code>Go</code>中提了<a href="https://github.com/golang/go/issues/15890" target="_blank">issue</a></p>
-
-<p>他的代码如下：</p>
-
-<pre><code class="language-golang">package main
-
-import (
-    &quot;encoding/json&quot;
-    &quot;fmt&quot;
-)
-
-type request struct {
-    Operations map[string]op `json:&quot;operations&quot;`
-}
-type op struct {
-  operation
-  Test string  `json:&quot;test&quot;`
-}
-type operation struct {
-    Width  int    `json:&quot;width&quot;`
-    Height int    `json:&quot;height&quot;`
-}
-
-func (o *operation) UnmarshalJSON(b []byte) error {
-    type xoperation operation
-    xo := &amp;xoperation{Width: 500, Height: 500}
-    if err := json.Unmarshal(b, xo); err != nil {
-        return err
-    }
-    *o = operation(*xo)
-    return nil
-}
-
-func main() {
-    jsonStr := `{
-            &quot;operations&quot;: {
-                &quot;001&quot;: {
-                    &quot;test&quot;:&quot;test&quot;,
-                    &quot;width&quot;: 100
-                }
-            }
-        }`
-    req := request{}
-    json.Unmarshal([]byte(jsonStr), &amp;req)
-    fmt.Println(req)
-}
-</code></pre>
-
-<p>这个问题的本质和我提出的那个问题一样，因为op中嵌入了operation，所以有了<code>UnmarshalJSON</code>,符合了json包中<code>Unmarshaler</code>接口，所以内部用接口去处理的时候，op是满足的，但实际处理的是operation，也就是以operation作为实体来进行<code>UnmarshalJSON</code>，导致了诡异的错误信息。</p>
-
-<p>我以为，这是<code>Go</code>实现中非常丑陋的一个地方。</p>
-
-<p>按照耗子哥说的，如果语言实现规则是知道的，还是容易犯错误的，那就是一个坑。</p>
+<p>线上跑了几个月，没有出现过异常，所以还是比较稳定的。</p>
 
         </div>
         
@@ -211,7 +139,7 @@ func main() {
   <p class="meta">
     <span class="byline author vcard">Posted by <span class="fn">DamonChen</span></span>
     
-    <time>Jul 4, 2016</time>
+    <time>Jul 5, 2016</time>
     <span class="categories">
       Tags:
         
@@ -225,11 +153,9 @@ func main() {
 
   <p class="meta">
     
-        <a class="basic-alignment left" href="http://damon121212.com/blog/2016/07/golang-encrypt-sample/" title="golang中几种加密方式的处理">golang中几种加密方式的处理</a>
+        <a class="basic-alignment left" href="http://damon121212.com/blog/2016/07/ugly-go-polymorphic/" title="golang的一个丑陋实现">golang的一个丑陋实现</a>
     
 
-    
-      <a class="basic-alignment right" href="http://damon121212.com/blog/2016/07/golang-routine-id/" title="golang routine id">golang routine id</a>
     
   </p>
   

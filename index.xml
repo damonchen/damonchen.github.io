@@ -6,8 +6,41 @@
     <description>Recent content on Damon小站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 04 Jul 2016 22:11:39 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 05 Jul 2016 17:33:22 +0800</lastBuildDate>
     <atom:link href="http://damon121212.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>golang routine id</title>
+      <link>http://damon121212.com/blog/2016/07/golang-routine-id/</link>
+      <pubDate>Tue, 05 Jul 2016 17:33:22 +0800</pubDate>
+      
+      <guid>http://damon121212.com/blog/2016/07/golang-routine-id/</guid>
+      <description>&lt;p&gt;在&lt;code&gt;Go&lt;/code&gt;中，系统是不提供&lt;code&gt;goroutine&lt;/code&gt;的&lt;code&gt;id&lt;/code&gt;给外界的，丫的认为这事情不应该提供给用户来使用。&lt;/p&gt;
+
+&lt;p&gt;可有时候，实在是觉得这个东西必须得有呀，比方说后台开了个&lt;code&gt;goroutine&lt;/code&gt;进行&lt;code&gt;http&lt;/code&gt;请求的处理，这个免不了要打个日志什么的，
+当并发量稍微大点的时候，就会发现这些信息的输出就交叉错乱在一起了。怎么区分。&lt;/p&gt;
+
+&lt;p&gt;一种方案是在&lt;code&gt;http&lt;/code&gt;请求的时候，生成一个&lt;code&gt;context&lt;/code&gt;的东西，里面有个值来表示是这个&lt;code&gt;goroutine&lt;/code&gt;，然后打日志的时候将这个值输出来。
+这种方案的问题是：你得将这个&lt;code&gt;context&lt;/code&gt;显示的一路传递下去，显然这个这很多时候会很痛苦。&lt;/p&gt;
+
+&lt;p&gt;另一种方案是如果系统能够提供一个标识来表明这个&lt;code&gt;goroutine&lt;/code&gt;的信息，那么就不必要这么麻烦了。所以考虑之后，决定采用这种获取系统的&lt;code&gt;goroutine id&lt;/code&gt;的方案。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;go1.6&lt;/code&gt;中具体方法是在&lt;code&gt;src/runtime/proc.go&lt;/code&gt;尾部添加&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-golang&#34;&gt;
+// export Goid
+func Goid() int64 {
+    _g_ := getg()
+    return _g_.goid
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;重新编译生成对应的&lt;code&gt;go&lt;/code&gt;编译器（最好用&lt;code&gt;go1.4&lt;/code&gt;来编译，省事），然后就可以在代码中用&lt;code&gt;runtime.Goid&lt;/code&gt;获取到对应的&lt;code&gt;id&lt;/code&gt;了。&lt;/p&gt;
+
+&lt;p&gt;线上跑了几个月，没有出现过异常，所以还是比较稳定的。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>golang的一个丑陋实现</title>

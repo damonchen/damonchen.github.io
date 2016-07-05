@@ -13,7 +13,7 @@
   <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
   <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/dracula.min.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/default.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 
@@ -86,6 +86,33 @@
  <div id="content">
   <div class="blog-index">
     
+    
+    <article>
+
+        
+        
+
+<header>
+    <h1 class="entry-title">
+        <a href="http://damon121212.com/blog/2016/07/golang-routine-id/">golang routine id</a>
+    </h1>
+    <p class="meta">Jul 5, 2016
+         - 1 minute read 
+         - <a href="http://damon121212.com/blog/2016/07/golang-routine-id/#disqus_thread">Comments</a>
+
+        
+    </p>
+</header>
+
+
+        
+          <p>在Go中，系统是不提供goroutine的id给外界的，丫的认为这事情不应该提供给用户来使用。 可有时候，实在是觉得这个东西必须得有呀，比方说后台开了个goroutine进行http请求的处理，这个免不了要打个日志什么的， 当并发量稍微大点的时候，就会发现这些信息的输出就交叉错乱在一起了。怎么区分。 一种方案是在http请求的时候，生成一个context的东西，里面有个值来表示是这个goroutine，然后打日志的时候将这个值输出来。 这种方案的问题是：你得将这个context显示的一路传递下去，显然这个这很多时候会很痛苦。 另一种方案是如果系统能够提供一个标识来表明这个goroutine的信息，那么就不必要这么麻烦了。所以考虑之后，决定采用这种获取系统的goroutine id的方案。 go1.6中具体方法是在src/runtime/proc.go尾部添加 // export Goid func Goid() int64 { _g_ := getg() return _g_.goid } 重新编译生成对应的go编译器（最好用go1.4来编译，省事），然后就可以在代码中用runtime.Goid获取到对应的id了。 线上跑了几个月，没有出现过异常，所以还是比较稳定的。</p>
+
+          
+
+        
+
+    </article>
     
     <article>
 
@@ -266,6 +293,10 @@
     <section class="even">
       <h1>Recent Posts</h1>
       <ul id="recent_posts">
+        
+          <li class="post">
+            <a href="/blog/2016/07/golang-routine-id/">golang routine id</a>
+          </li>
         
           <li class="post">
             <a href="/blog/2016/07/ugly-go-polymorphic/">golang的一个丑陋实现</a>
