@@ -6,8 +6,45 @@
     <description>Recent content in Posts on Damon小站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 05 Jul 2016 17:33:22 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 06 Jul 2016 08:50:06 +0800</lastBuildDate>
     <atom:link href="http://damon121212.com/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Go中使用uint64遇到的问题</title>
+      <link>http://damon121212.com/blog/2016/07/golang-with-uint64-problems/</link>
+      <pubDate>Wed, 06 Jul 2016 08:50:06 +0800</pubDate>
+      
+      <guid>http://damon121212.com/blog/2016/07/golang-with-uint64-problems/</guid>
+      <description>&lt;p&gt;因为设计的缘故，我们内部系统使用了不少了&lt;code&gt;uint64&lt;/code&gt;，同时也带来了很多问题：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;在&lt;code&gt;Go&lt;/code&gt;的&lt;code&gt;mysql&lt;/code&gt;实现中，对于&lt;code&gt;uint64&lt;/code&gt;的转换，是分两部分的，具体代码（&lt;a href=&#34;https://github.com/go-sql-driver/mysql/blob/master/packets.go#1137）：&#34; target=&#34;_blank&#34;&gt;https://github.com/go-sql-driver/mysql/blob/master/packets.go#1137）：&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-golang&#34;&gt;            case fieldTypeLongLong:
+            if rows.columns[i].flags&amp;amp;flagUnsigned != 0 {
+                val := binary.LittleEndian.Uint64(data[pos : pos+8])
+                if val &amp;gt; math.MaxInt64 {
+                    dest[i] = uint64ToString(val)
+                } else {
+                    dest[i] = int64(val)
+                }
+            } else {
+                dest[i] = int64(binary.LittleEndian.Uint64(data[pos : pos+8]))
+            }
+            pos += 8
+            continue
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;上面可以看到，对于&lt;code&gt;uint64&lt;/code&gt;部分，是通过两个不同的数据类型来处理的。当将从数据库获取获取的所有数据以&lt;code&gt;map[string]interface{}&lt;/code&gt;形式返回时，map的value值类型就有可能是&lt;code&gt;int64&lt;/code&gt;和&lt;code&gt;uint64&lt;/code&gt;，这对于强类型的&lt;code&gt;Go&lt;/code&gt;而言，无疑是一个麻烦的事情，得自己做断言判断，常常会因为不小心遗漏而导致异常（不易发现）。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;在将&lt;code&gt;Go&lt;/code&gt;中的&lt;code&gt;uint64&lt;/code&gt;返回给前端的时候，由于&lt;code&gt;JavaScript&lt;/code&gt;&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Mozilla/js-ctypes/js-ctypes_reference/UInt64&#34; target=&#34;_blank&#34;&gt;不支持64位的整型数值&lt;/a&gt;，前端有可能会准确（值比较小，可以用32位的int表示），也有可能失败，这也是一个麻烦的事情。所以为了统一解决，需要将&lt;code&gt;uint64&lt;/code&gt;的数据，转换为字符串方式，然后转递给前端处理。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;后台传递给前端需要将&lt;code&gt;uint64&lt;/code&gt;转换为字符串，就需要在返回前去小心处理&lt;code&gt;uint64&lt;/code&gt;的值（这通常也是一个麻烦的事情）。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>golang routine id</title>

@@ -94,6 +94,33 @@
 
 <header>
     <h1 class="entry-title">
+        <a href="http://damon121212.com/blog/2016/07/golang-with-uint64-problems/">Go中使用uint64遇到的问题</a>
+    </h1>
+    <p class="meta">Jul 6, 2016
+         - 1 minute read 
+         - <a href="http://damon121212.com/blog/2016/07/golang-with-uint64-problems/#disqus_thread">Comments</a>
+
+        
+    </p>
+</header>
+
+
+        
+          <p>因为设计的缘故，我们内部系统使用了不少了uint64，同时也带来了很多问题： 在Go的mysql实现中，对于uint64的转换，是分两部分的，具体代码（https://github.com/go-sql-driver/mysql/blob/master/packets.go#1137）： case fieldTypeLongLong: if rows.columns[i].flags&amp;flagUnsigned != 0 { val := binary.LittleEndian.Uint64(data[pos : pos+8]) if val &gt; math.MaxInt64 { dest[i] = uint64ToString(val) } else { dest[i] = int64(val) } } else { dest[i] = int64(binary.LittleEndian.Uint64(data[pos : pos+8])) } pos += 8 continue 上面可以看到，对于uint64部分，是通过两个不同的数据类型来处理的。当将从数据库获取获取的所有数据以map[string]interface{}形式返回时，map的value值类型就有可能是int64和uint64，这对于强类型的Go而言，无疑是一个麻烦的事情，得自己做断言判断，常常会因为不小心遗漏而导致异常（不易发现）。 在将Go中的uint64返回给前端的时候，由于JavaScript不支持64位的整型数值，前端有可能会准确（值比较小，可以用32位的int表示），也有可能失败，这也是一个麻烦的事情。所以为了统一解决，需要将uint64的数据，转换为字符串方式，然后转递给前端处理。 后台传递给前端需要将uint64转换为字符串，就需要在返回前去小心处理uint64的值（这通常也是一个麻烦的事情）。</p>
+
+          
+
+        
+
+    </article>
+    
+    <article>
+
+        
+        
+
+<header>
+    <h1 class="entry-title">
         <a href="http://damon121212.com/blog/2016/07/golang-routine-id/">golang routine id</a>
     </h1>
     <p class="meta">Jul 5, 2016
@@ -293,6 +320,10 @@
     <section class="even">
       <h1>Recent Posts</h1>
       <ul id="recent_posts">
+        
+          <li class="post">
+            <a href="/blog/2016/07/golang-with-uint64-problems/">Go中使用uint64遇到的问题</a>
+          </li>
         
           <li class="post">
             <a href="/blog/2016/07/golang-routine-id/">golang routine id</a>
