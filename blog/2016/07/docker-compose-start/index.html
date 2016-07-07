@@ -19,7 +19,7 @@
 
 
   
-  <title>Go中使用uint64遇到的问题</title>
+  <title>docker compose</title>
 
   
   
@@ -92,11 +92,11 @@
 
 <header>
     <h1 class="entry-title">
-         Go中使用uint64遇到的问题 
+         docker compose 
     </h1>
-    <p class="meta">Jul 6, 2016
+    <p class="meta">Jul 7, 2016
          - 1 minute read 
-         - <a href="http://damon121212.com/blog/2016/07/golang-with-uint64-problems/#disqus_thread">Comments</a>
+         - <a href="http://damon121212.com/blog/2016/07/docker-compose-start/#disqus_thread">Comments</a>
 
         
     </p>
@@ -107,34 +107,126 @@
           
           
           
-          <p>因为设计的缘故，我们内部系统使用了不少了<code>uint64</code>，同时也带来了很多问题：</p>
+          
 
-<ul>
-<li>在<code>Go</code>的<code>mysql</code>实现中，对于<code>uint64</code>的转换，是分两部分的，具体代码（<a href="https://github.com/go-sql-driver/mysql/blob/master/packets.go#1137）：" target="_blank">https://github.com/go-sql-driver/mysql/blob/master/packets.go#1137）：</a></li>
-</ul>
+<p><code>docker</code>启动时不同镜像之间的链接的处理是比较麻烦的，所以官方目前有一个<code>docker-compose</code>用来做这些事情，官方给的例子是这样的。</p>
 
-<pre><code class="language-golang">            case fieldTypeLongLong:
-            if rows.columns[i].flags&amp;flagUnsigned != 0 {
-                val := binary.LittleEndian.Uint64(data[pos : pos+8])
-                if val &gt; math.MaxInt64 {
-                    dest[i] = uint64ToString(val)
-                } else {
-                    dest[i] = int64(val)
-                }
-            } else {
-                dest[i] = int64(binary.LittleEndian.Uint64(data[pos : pos+8]))
-            }
-            pos += 8
-            continue
+<h2 id="构建一个-web-应用">构建一个<code>Web</code>应用</h2>
+
+<p>官方使用<code>Python</code>下的<code>Flask</code>框架构建的应用，创建了一个<code>app.py</code>的文件：</p>
+
+<pre><code class="language-python">from flask import Flask
+from redis import redis
+
+app = Flask(__name__)
+redis = Redis(host='redis', port=6379)
+
+
+@app.route('/')
+def hello():
+    redis.incr('hits')
+    return &quot;Hello World! I have been seen %s times&quot; % redis.get('hits')
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', debug=True)
 </code></pre>
 
-<p>上面可以看到，对于<code>uint64</code>部分，是通过两个不同的数据类型来处理的。当将从数据库获取获取的所有数据以<code>map[string]interface{}</code>形式返回时，map的value值类型就有可能是<code>int64</code>和<code>uint64</code>，这对于强类型的<code>Go</code>而言，无疑是一个麻烦的事情，得自己做断言判断，常常会因为不小心遗漏而导致异常（不易发现）。</p>
+<p>创建一个<code>requirements.txt</code>的文件（给<code>pip</code>安装程序用）</p>
+
+<pre><code class="language-text">flask
+redis
+</code></pre>
+
+<h2 id="创建一个docker镜像">创建一个Docker镜像</h2>
 
 <ul>
-<li>在将<code>Go</code>中的<code>uint64</code>返回给前端的时候，由于<code>JavaScript</code><a href="https://developer.mozilla.org/en-US/docs/Mozilla/js-ctypes/js-ctypes_reference/UInt64" target="_blank">不支持64位的整型数值</a>，前端有可能会准确（值比较小，可以用32位的int表示），也有可能失败，这也是一个麻烦的事情。所以为了统一解决，需要将<code>uint64</code>的数据，转换为字符串方式，然后转递给前端处理。</li>
+<li>首先构建一个<code>Dockerfile</code>文件</li>
 </ul>
 
-<p>后台传递给前端需要将<code>uint64</code>转换为字符串，就需要在返回前去小心处理<code>uint64</code>的值（这通常也是一个麻烦的事情）。</p>
+<pre><code class="language-Dockerfile">FROM Python:2.7
+ADD . /code
+WORKDIR /code
+RUN pip install -r requirements.txt
+CMD python app.py
+</code></pre>
+
+<ul>
+<li>然后构建镜像</li>
+</ul>
+
+<pre><code class="language-bash">docker build -t web .
+</code></pre>
+
+<h2 id="定义服务">定义服务</h2>
+
+<p>通过<code>docker-compose.yml</code>定义服务：</p>
+
+<pre><code class="language-yaml">
+version: '2'
+services:
+    web:
+        build: .
+        ports:
+        - &quot;5000:5000&quot;
+        volumes:
+        - .:/code
+        depends_on:
+        - redis
+    redis:
+        image: redis
+</code></pre>
+
+<p>关于<code>depends_on</code>和<code>links</code>之间的差异见: <a href="http://stackoverflow.com/questions/35832095/difference-between-links-and-depends-on-in-docker-compose-yml" target="_blank">http://stackoverflow.com/questions/35832095/difference-between-links-and-depends-on-in-docker-compose-yml</a></p>
+
+<h2 id="运行">运行</h2>
+
+<pre><code class="language-bash">docker-compose up
+</code></pre>
+
+<p><code>compose</code>会拉取<code>redis</code>的镜像，构建代码，然后启动服务，在浏览器中输入<code>http://0.0.0.0:5000</code>，就可以看到应用已经在运行了。</p>
+
+<h2 id="一些实验">一些实验</h2>
+
+<p>想要后台运行<code>compose</code>，给个<code>-d</code>(detach)参数，用<code>docker-compose ps</code>查看运行的容器。</p>
+
+<p><code>docker-compose run</code>命令允许在一个容器中运行指令，如</p>
+
+<pre><code class="language-bash">    docker-compose run web env
+</code></pre>
+
+<p>获取<code>web</code>服务的<code>env</code>信息。</p>
+
+<p><code>docker-compose stop</code>可以停止<code>-d</code>启动的服务。</p>
+
+<h2 id="后记">后记</h2>
+
+<p>我在<code>ubuntu-14.04</code>上跑<code>docker</code>的时候，出现了
+<code>ERROR: Couldn't connect to Docker daemon at http+docker://localunixsocket - is it running?</code> 错误
+需要修改<code>/etc/default/docker</code>中的<code>DOCKER_OPTS</code>，添加 <code>&quot;-H tcp://127.0.0.1:4243 -H unix:///var/run/docker.sock&quot;</code>，重启<code>docker</code>，设置环境变量<code>DOCKER_HOST</code></p>
+
+<pre><code class="language-bash">export DOCKER_HOST=tcp://localhost:4243
+</code></pre>
+
+<p>再执行<code>docker-compose up</code>即可。 也可以试试 <a href="https://github.com/docker/compose/issues/1214" target="_blank">https://github.com/docker/compose/issues/1214</a> 中说的方法：</p>
+
+<p>我使用的环境如下：</p>
+
+<pre><code class="language-bash">$ uname -a
+Linux ubuntu-14 4.2.0-27-generic #32~14.04.1-Ubuntu SMP Fri Jan 22 15:32:26 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux
+
+$ docker version
+Client:
+ Version:      1.11.2
+ API version:  1.23
+ Go version:   go1.5.4
+ Git commit:   b9f10c9
+ Built:        Wed Jun  1 21:47:50 2016
+ OS/Arch:      linux/amd64
+
+$ docker-compose --version
+docker-compose version 1.6.2, build 4d72027
+
+</code></pre>
 
         </div>
         
@@ -143,7 +235,7 @@
   <p class="meta">
     <span class="byline author vcard">Posted by <span class="fn">DamonChen</span></span>
     
-    <time>Jul 6, 2016</time>
+    <time>Jul 7, 2016</time>
     <span class="categories">
       Tags:
         
@@ -157,11 +249,9 @@
 
   <p class="meta">
     
-        <a class="basic-alignment left" href="http://damon121212.com/blog/2016/07/golang-routine-id/" title="golang routine id">golang routine id</a>
+        <a class="basic-alignment left" href="http://damon121212.com/blog/2016/07/golang-with-uint64-problems/" title="Go中使用uint64遇到的问题">Go中使用uint64遇到的问题</a>
     
 
-    
-      <a class="basic-alignment right" href="http://damon121212.com/blog/2016/07/docker-compose-start/" title="docker compose">docker compose</a>
     
   </p>
   

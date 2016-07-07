@@ -94,6 +94,37 @@
 
 <header>
     <h1 class="entry-title">
+        <a href="http://damon121212.com/blog/2016/07/docker-compose-start/">docker compose</a>
+    </h1>
+    <p class="meta">Jul 7, 2016
+         - 1 minute read 
+         - <a href="http://damon121212.com/blog/2016/07/docker-compose-start/#disqus_thread">Comments</a>
+
+        
+    </p>
+</header>
+
+
+        
+          <p>docker启动时不同镜像之间的链接的处理是比较麻烦的，所以官方目前有一个docker-compose用来做这些事情，官方给的例子是这样的。 构建一个Web应用 官方使用Python下的Flask框架构建的应用，创建了一个app.py的文件： from flask import Flask from redis import redis app = Flask(__name__) redis = Redis(host='redis', port=6379) @app.route('/') def hello(): redis.incr('hits') return &quot;Hello World! I have been seen %s times&quot; % redis.get('hits') if __name__ == '__main__': app.run(host='0.0.0.0', debug=True) 创建一个requirements.txt的文件（给pip安装程序用） flask redis 创建一个Docker镜像 首先构建一个Dockerfile文件 FROM Python:2.7 ADD . /code WORKDIR /code RUN pip install -r requirements.txt CMD python app.py 然后构建镜像 docker build -t web . 定义服务 通过docker-compose.yml定义服务： version: '2' services: web: build: .</p>
+
+          
+              <footer>
+                  <a href="http://damon121212.com/blog/2016/07/docker-compose-start/" rel="full-article">Read On &rarr;</a>
+              </footer>
+          
+
+        
+
+    </article>
+    
+    <article>
+
+        
+        
+
+<header>
+    <h1 class="entry-title">
         <a href="http://damon121212.com/blog/2016/07/golang-with-uint64-problems/">Go中使用uint64遇到的问题</a>
     </h1>
     <p class="meta">Jul 6, 2016
@@ -230,38 +261,40 @@
 
     </article>
     
-    <article>
-
-        
-        
-
-<header>
-    <h1 class="entry-title">
-        <a href="http://damon121212.com/blog/2016/07/start/">start</a>
-    </h1>
-    <p class="meta">Jul 4, 2016
-         - 1 minute read 
-         - <a href="http://damon121212.com/blog/2016/07/start/#disqus_thread">Comments</a>
-
-        
-    </p>
-</header>
-
-
-        
-          <p>星辰大海，扬帆了。</p>
-
-          
-
-        
-
-    </article>
-    
     
     
 
 
 
+
+<div class="pagination">
+
+    
+        
+        
+        
+        <a href="/" aria-label="First" class="label-pagination"><i class="fa fa-angle-double-left fa-lg"></i></a>
+    
+
+    
+
+    
+        <a href="/" class="label-pagination">1</a>
+    
+        <a href="/page/2/" class="label-pagination">2</a>
+    
+
+    
+    
+        <a href="/page/2/" aria-label="Next" class="label-pagination"><i class="fa fa-angle-right fa-lg"></i></a>
+    
+
+    
+    
+        <a href="/page/2/" aria-label="Last"><i class="fa fa-angle-double-right fa-lg"></i></a>
+    
+
+</div>
 
   
 
@@ -322,6 +355,10 @@
     <section class="even">
       <h1>Recent Posts</h1>
       <ul id="recent_posts">
+        
+          <li class="post">
+            <a href="/blog/2016/07/docker-compose-start/">docker compose</a>
+          </li>
         
           <li class="post">
             <a href="/blog/2016/07/golang-with-uint64-problems/">Go中使用uint64遇到的问题</a>
