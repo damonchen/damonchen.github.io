@@ -19,7 +19,7 @@
 
 
   
-  <title>Go中使用uint64遇到的问题</title>
+  <title>Damon小站</title>
 
   
   
@@ -38,7 +38,7 @@
   
   
 
-  
+  <link href="http://damon121212.com/index.xml" rel="alternate" type="application/rss+xml" title="Damon小站" />
 
   <meta name="description" content="Developer,Python,Go,Linux,Docker,程序,开发,设计">
   <meta name="keywords" content="[Developer Python Go Linux Docker 程序 开发 设计]">
@@ -87,117 +87,135 @@
 
 
 <div id="main">
-  <div id="content">
-    <div>
-      <article class="hentry" role="article">
+ <div id="content">
+  <div class="blog-index">
+    
+    
+    <article>
 
         
         
 
 <header>
     <h1 class="entry-title">
-         Go中使用uint64遇到的问题 
+        <a href="http://damon121212.com/blog/2016/07/golang-encrypt-sample/">golang中几种加密方式的处理</a>
     </h1>
-    <p class="meta">Jul 6, 2016
-         - 1 minute read 
-         - <a href="http://damon121212.com/blog/2016/07/golang-with-uint64-problems/#disqus_thread">Comments</a>
+    <p class="meta">Jul 4, 2016
+         - 2 minute read 
+         - <a href="http://damon121212.com/blog/2016/07/golang-encrypt-sample/#disqus_thread">Comments</a>
 
         
     </p>
 </header>
 
 
-        <div class="entry-content">
+        
+          <p>缘由 在与第三方平台进行接入的时候，通常会存在一些签名或者加密的处理，在进行开发的时候，因为语言的 不同，需要按照规范进行相应处理。 DES加解密 DES：https://en.wikipedia.org/wiki/Data_Encryption_Standard golang中的标准库crypto/des中有DES的实现，但是golang库的描述比较简单，如果不熟悉DES的加密规则，是不容易 进行相应代码编写的，与第三方进行不同语言之间的加密与解密时，也容易混淆，出现错误。 DES区分为CBC和EBC加密模式，并且有不同的填充方式。 CBC（等）：https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation Padding：https://en.wikipedia.org/wiki/Padding_(cryptography) 注意 PKCS#5 padding is identical to PKCS#7 padding 所以对不同的平台与语言进行DES加解密对接时，需要知道对方的是采用何种加密模式以及何种填充方式： Windows 默认是CBC模式，CryptSetKeyParam函数，openssl 函数名中直接表明 Java 中如果Cipher.getInstance()中不填写，默认是DES/ECB/PKCS5Padding C# 中默认是CBC模式，PKCS7Padding(PKCS5Padding) golang默认提供的是CBC模式，所以对于ECB模式，需要自己编写代码 PKCS5Padding与PKCS5Unpadding func PKCS5Padding(ciphertext []byte, blockSize int) []byte { padding := blockSize - len(ciphertext)%blockSize padtext := bytes.Repeat([]byte{byte(padding)}, padding) return append(ciphertext, padtext...) } func PKCS5Unpadding(origData []byte) []byte { length := len(origData) unpadding := int(origData[length-1]) return origData[:(length - unpadding)] } ECB加密模式 block, err := des.NewCipher(key) if err != nil { ...</p>
+
           
+              <footer>
+                  <a href="http://damon121212.com/blog/2016/07/golang-encrypt-sample/" rel="full-article">Read On &rarr;</a>
+              </footer>
           
+
+        
+
+    </article>
+    
+    <article>
+
+        
+        
+
+<header>
+    <h1 class="entry-title">
+        <a href="http://damon121212.com/blog/2016/07/daemon-process/">linux标准daemon编写方式</a>
+    </h1>
+    <p class="meta">Jul 4, 2016
+         - 1 minute read 
+         - <a href="http://damon121212.com/blog/2016/07/daemon-process/#disqus_thread">Comments</a>
+
+        
+    </p>
+</header>
+
+
+        
+          <p>daemon定义 运行在后台的程序，通常不需要与用户进行交互的。 任何父进程id是0的通常是kernel进程，作为系统启动的一部分，除了init是用户态的命令。 规则 第一件事情是调用umask设置文件模型的mask为0，文件mode creation mask可以被进程继承，但daemon进程需要创建文件时，需要特殊的权限。 调用fork，退出父进程exit，这可以做几件事情，首先，daemon将使用shell命令行启动，其次，子进程继承了process group id，但获取一个新的id，因此我们可以确保子进程不会是一个process group leader，为调用setsid做准备。 调用setsid创建一个新的session。该进程开始成为一个新的session的session leader，然后成为新的process group的process group leader，并且没有controlling terminal。 一些基于System V的用户推荐再fork一下，第二个child仍旧是一个daemon，然后保证该daemon不是一个session leader，在System V规则下阻止得到一个控制终端。 避免获取一个终端，使用O_NOCTTY来确保打开一个非终端设备。 修改当前目录为根目录（即/），为房子daemon存在于mounted file system中，系统重启时，文件系统不能够unmounted。 不需要的文件描述符应该关闭，阻止从parent中继承下来的文件描述符。 由于没有终端的缘故，因此需要将文件描述符0，1和2将切换到/dev/null。</p>
+
           
-          <p>因为设计的缘故，我们内部系统使用了不少了<code>uint64</code>，同时也带来了很多问题：</p>
 
-<ul>
-<li>在<code>Go</code>的<code>mysql</code>实现中，对于<code>uint64</code>的转换，是分两部分的，具体代码（<a href="https://github.com/go-sql-driver/mysql/blob/master/packets.go#1137）：" target="_blank">https://github.com/go-sql-driver/mysql/blob/master/packets.go#1137）：</a></li>
-</ul>
-
-<pre><code class="language-golang">            case fieldTypeLongLong:
-            if rows.columns[i].flags&amp;flagUnsigned != 0 {
-                val := binary.LittleEndian.Uint64(data[pos : pos+8])
-                if val &gt; math.MaxInt64 {
-                    dest[i] = uint64ToString(val)
-                } else {
-                    dest[i] = int64(val)
-                }
-            } else {
-                dest[i] = int64(binary.LittleEndian.Uint64(data[pos : pos+8]))
-            }
-            pos += 8
-            continue
-</code></pre>
-
-<p>上面可以看到，对于<code>uint64</code>部分，是通过两个不同的数据类型来处理的。当将从数据库获取获取的所有数据以<code>map[string]interface{}</code>形式返回时，map的value值类型就有可能是<code>int64</code>和<code>uint64</code>，这对于强类型的<code>Go</code>而言，无疑是一个麻烦的事情，得自己做断言判断，常常会因为不小心遗漏而导致异常（不易发现）。</p>
-
-<ul>
-<li>在将<code>Go</code>中的<code>uint64</code>返回给前端的时候，由于<code>JavaScript</code><a href="https://developer.mozilla.org/en-US/docs/Mozilla/js-ctypes/js-ctypes_reference/UInt64" target="_blank">不支持64位的整型数值</a>，前端有可能会准确（值比较小，可以用32位的int表示），也有可能失败，这也是一个麻烦的事情。所以为了统一解决，需要将<code>uint64</code>的数据，转换为字符串方式，然后转递给前端处理。</li>
-</ul>
-
-<p>后台传递给前端需要将<code>uint64</code>转换为字符串，就需要在返回前去小心处理<code>uint64</code>的值（这通常也是一个麻烦的事情）。</p>
-
-        </div>
         
 
-<footer>
-  <p class="meta">
-    <span class="byline author vcard">Posted by <span class="fn">DamonChen</span></span>
+    </article>
     
-    <time>Jul 6, 2016</time>
-    <span class="categories">
-      Tags:
+    <article>
+
         
         
-          <a class="category" href="http://damon121212.com/tags/development">Development</a>  <a class="category" href="http://damon121212.com/tags/go">Go</a>  
+
+<header>
+    <h1 class="entry-title">
+        <a href="http://damon121212.com/blog/2016/07/start/">start</a>
+    </h1>
+    <p class="meta">Jul 4, 2016
+         - 1 minute read 
+         - <a href="http://damon121212.com/blog/2016/07/start/#disqus_thread">Comments</a>
+
         
-    </span>
-  </p>
+    </p>
+</header>
+
+
+        
+          <p>星辰大海，扬帆了。</p>
+
+          
+
+        
+
+    </article>
+    
+    
+    
+
+
+
+
+<div class="pagination">
+
+    
+        
+        
+        
+        <a href="/" aria-label="First" class="label-pagination"><i class="fa fa-angle-double-left fa-lg"></i></a>
+    
+
+    
+    
+        <a href="/" aria-label="Previous" class="label-pagination"><i class="fa fa-angle-left fa-lg"></i></a>
+    
+
+    
+        <a href="/" class="label-pagination">1</a>
+    
+        <a href="/page/2/" class="label-pagination">2</a>
+    
+
+    
+
+    
+    
+        <a href="/page/2/" aria-label="Last"><i class="fa fa-angle-double-right fa-lg"></i></a>
+    
+
+</div>
 
   
-  
+
+  </div>
 
   
-
-  <p class="meta">
-    
-        <a class="basic-alignment left" href="http://damon121212.com/blog/2016/07/golang-routine-id/" title="golang routine id">golang routine id</a>
-    
-
-    
-      <a class="basic-alignment right" href="http://damon121212.com/blog/2016/07/docker-compose-start/" title="docker compose start">docker compose start</a>
-    
-  </p>
-  
-    
-      <div id="disqus_thread"></div>
-<script type="text/javascript">
-
-(function() {
-    
-    
-    
-    
-
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    var disqus_shortname = 'damonchen';
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
-    
-  
-</footer>
-
-      </article>
-    </div>
-    
 
 <aside class="sidebar thirds">
   <section class="first odd">
@@ -313,8 +331,8 @@
   
 
 </aside>
-
-  </div>
+    
+ </div>
 </div>
 
 <footer role="contentinfo">
@@ -334,4 +352,4 @@
 
 </body>
 </html>
-
+   

@@ -19,7 +19,7 @@
 
 
   
-  <title>Go中使用uint64遇到的问题</title>
+  <title>如何进行技术选型</title>
 
   
   
@@ -96,11 +96,11 @@
 
 <header>
     <h1 class="entry-title">
-         Go中使用uint64遇到的问题 
+         如何进行技术选型 
     </h1>
-    <p class="meta">Jul 6, 2016
+    <p class="meta">Jul 11, 2016
          - 1 minute read 
-         - <a href="http://damon121212.com/blog/2016/07/golang-with-uint64-problems/#disqus_thread">Comments</a>
+         - <a href="http://damon121212.com/blog/2016/07/how-to-choose-tech-for-developing/#disqus_thread">Comments</a>
 
         
     </p>
@@ -111,34 +111,39 @@
           
           
           
-          <p>因为设计的缘故，我们内部系统使用了不少了<code>uint64</code>，同时也带来了很多问题：</p>
+          <p>对于开发而言，技术选型是重中之重，然而实际经历过的选型大概有这么几种</p>
 
 <ul>
-<li>在<code>Go</code>的<code>mysql</code>实现中，对于<code>uint64</code>的转换，是分两部分的，具体代码（<a href="https://github.com/go-sql-driver/mysql/blob/master/packets.go#1137）：" target="_blank">https://github.com/go-sql-driver/mysql/blob/master/packets.go#1137）：</a></li>
+<li>我就只知道这种技术，没得选</li>
+<li>我听过某个很热门，就选那种</li>
+<li>网上搜到某个问题可以用某个技术解决，就这了。</li>
+<li>经过仔细研究调查，然后选择某种</li>
 </ul>
 
-<pre><code class="language-golang">            case fieldTypeLongLong:
-            if rows.columns[i].flags&amp;flagUnsigned != 0 {
-                val := binary.LittleEndian.Uint64(data[pos : pos+8])
-                if val &gt; math.MaxInt64 {
-                    dest[i] = uint64ToString(val)
-                } else {
-                    dest[i] = int64(val)
-                }
-            } else {
-                dest[i] = int64(binary.LittleEndian.Uint64(data[pos : pos+8]))
-            }
-            pos += 8
-            continue
-</code></pre>
+<p>刚毕业的时候在小公司时，基本上就只会第一二三种方式来进行选型，熬过几年，有人提点后，才会慢慢懂得怎么来选型。</p>
 
-<p>上面可以看到，对于<code>uint64</code>部分，是通过两个不同的数据类型来处理的。当将从数据库获取获取的所有数据以<code>map[string]interface{}</code>形式返回时，map的value值类型就有可能是<code>int64</code>和<code>uint64</code>，这对于强类型的<code>Go</code>而言，无疑是一个麻烦的事情，得自己做断言判断，常常会因为不小心遗漏而导致异常（不易发现）。</p>
+<p>对于个人型的项目，第一二种只是个人行为，无所谓。但对于公司项目，如果还是这么选型的话，就只能呵呵了。</p>
+
+<p>对于语言的选型，通常需要考虑这么几个事情：</p>
 
 <ul>
-<li>在将<code>Go</code>中的<code>uint64</code>返回给前端的时候，由于<code>JavaScript</code><a href="https://developer.mozilla.org/en-US/docs/Mozilla/js-ctypes/js-ctypes_reference/UInt64" target="_blank">不支持64位的整型数值</a>，前端有可能会准确（值比较小，可以用32位的int表示），也有可能失败，这也是一个麻烦的事情。所以为了统一解决，需要将<code>uint64</code>的数据，转换为字符串方式，然后转递给前端处理。</li>
+<li>对于初创公司，这么语言的开发效率快不快</li>
+<li>对于成熟的公司，这门语言的招人容易不容易</li>
+<li>这门语言的第三方周边库丰富不丰富</li>
+<li>团队中的成员是否有足够的能力驾驭这门语言</li>
+<li>这门语言可以<strong>快速</strong>解决什么样的问题</li>
 </ul>
 
-<p>后台传递给前端需要将<code>uint64</code>转换为字符串，就需要在返回前去小心处理<code>uint64</code>的值（这通常也是一个麻烦的事情）。</p>
+<p>对于开源库（开源产品）的选型，通常需要考虑下面几个问题：</p>
+
+<ul>
+<li>库是否足够稳定</li>
+<li>库是否持久维护</li>
+<li>库是否按照开源规范维护</li>
+<li>如果库中出现问题，是否能够修正或者快速找人修正</li>
+<li>库的版权是否合适</li>
+<li>库的周边是否丰富（如文档，如插件）</li>
+</ul>
 
         </div>
         
@@ -147,12 +152,9 @@
   <p class="meta">
     <span class="byline author vcard">Posted by <span class="fn">DamonChen</span></span>
     
-    <time>Jul 6, 2016</time>
+    <time>Jul 11, 2016</time>
     <span class="categories">
       Tags:
-        
-        
-          <a class="category" href="http://damon121212.com/tags/development">Development</a>  <a class="category" href="http://damon121212.com/tags/go">Go</a>  
         
     </span>
   </p>
@@ -164,11 +166,11 @@
 
   <p class="meta">
     
-        <a class="basic-alignment left" href="http://damon121212.com/blog/2016/07/golang-routine-id/" title="golang routine id">golang routine id</a>
+        <a class="basic-alignment left" href="http://damon121212.com/blog/2016/07/docker-compose-start/" title="docker compose start">docker compose start</a>
     
 
     
-      <a class="basic-alignment right" href="http://damon121212.com/blog/2016/07/docker-compose-start/" title="docker compose start">docker compose start</a>
+      <a class="basic-alignment right" href="http://damon121212.com/blog/2016/07/async-promise-model/" title="异步编程的Promise模式">异步编程的Promise模式</a>
     
   </p>
   
