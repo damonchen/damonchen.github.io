@@ -98,6 +98,37 @@
 
 <header>
     <h1 class="entry-title">
+        <a href="http://damon121212.com/blog/2016/07/understand-rest/">理解REST</a>
+    </h1>
+    <p class="meta">Jul 17, 2016
+         - 1 minute read 
+         - <a href="http://damon121212.com/blog/2016/07/understand-rest/#disqus_thread">Comments</a>
+
+        
+    </p>
+</header>
+
+
+        
+          <p>REST(Representational State Transfer：表述性状态传递)，由Roy Fielding在他2000年时的 博士论文中引入和定义的。 REST是为分布式定义的一个架构形式，它不是一个标准，但有一些限制：如状态，client/server关系，统一的接口形式。 REST通常用HTTP实现。 REST原则 资源 可以通过结构化的URI方便导出 表述性 通过JSON或者XML来表述数据对象和属性 消息 显式使用HTTP方法（GET,POST,PUT,DELETE) 无状态 client和server之间的交互无上下文，状态依赖和扩展是可以扩展，client不保存session状态。 HTTP方法 使用HTTP方法匹配CRUD(create, retrieve, update, delete)操作。 GET 获取信息，GET请求必须安全并且幂等，即无论同一个参数请求多少次，都返回同样的结果。 可以有副作用，但用户并不关注这个副作用，所以不能运行系统中至关重要的操作。 请求可以是部分或者条件的。 示例为用ID为1的获取地址: GET /addresses/1 POST 通常POST用来创建一个新的实体，但不用来更新一个实体。 创建新的地址 POST /addresses PUT 在URI中存储实体，可以用来创建一个新的实体或者更新一个实体。一个PUT请求是幂等的。 幂等是PUT动作和POST请求之间的最大差异 修改ID为1的地址 PUT /addresses/1 注意：PUT替换原来已经存在的实体，如果仅提供数据元素的子集，REST将更新为空或者null。 PATCH 更新URI中的指定字段，PATCH是幂等的。 PATCH /addresses/1 DELETE 移除资源，但不需要立即移除资源，可以异步处理或者很长时间的请求。 DELETE /addresses/1 HTTP状态码 HTTP请求结果的的状态显示 1xx - 信息 2xx - 成功 3xx - 跳转 4xx - client错误 5xx - server错误 Media类型 HTTP请求头中的Accept和Content-Type可以用来描述HTTP中发送或者请求的内容。当client 设置Accept为 application/json 时，希望请求可以返回一个JSON信息。当client设置</p>
+
+          
+              <footer>
+                  <a href="http://damon121212.com/blog/2016/07/understand-rest/" rel="full-article">Read On &rarr;</a>
+              </footer>
+          
+
+        
+
+    </article>
+    
+    <article>
+
+        
+        
+
+<header>
+    <h1 class="entry-title">
         <a href="http://damon121212.com/blog/2016/07/async-promise-model/">异步编程的Promise模式</a>
     </h1>
     <p class="meta">Jul 16, 2016
@@ -230,37 +261,6 @@
 
     </article>
     
-    <article>
-
-        
-        
-
-<header>
-    <h1 class="entry-title">
-        <a href="http://damon121212.com/blog/2016/07/ugly-go-polymorphic/">golang的一个丑陋实现</a>
-    </h1>
-    <p class="meta">Jul 4, 2016
-         - 1 minute read 
-         - <a href="http://damon121212.com/blog/2016/07/ugly-go-polymorphic/#disqus_thread">Comments</a>
-
-        
-    </p>
-</header>
-
-
-        
-          <p>好多些天前，我在Golang实践群里问了下面代码的问题： package main import &quot;fmt&quot; type Aer interface{ Name()string PrintName() } type A struct { } func (a *A) Name() string { return &quot;a&quot; } func (a *A) PrintName() { fmt.Println(a.Name()) } type B struct { A } func (b *B) Name() string { return &quot;b&quot; } func getAer() Aer { return &amp;B{} } func main() { a := getAer() a.printName() } 这个实现中，Go中输出出的是a，这个实现违反了通常C++，Java，Python中会输出b的实现，由于上述几个语言的思维习惯已经形成，那么这个实现就会导致很多意想不到的事情。 昨儿个在Golang实践群中，有赞的兄弟（这位兄弟知道我提的上面的问题，并说这个是Go的实现方式）就问到了，在UnmarshalJSON的时候，为何Test字段没有被赋值，并在Go中提了issue 他的代码如下： package main import ( &quot;encoding/json&quot;</p>
-
-          
-              <footer>
-                  <a href="http://damon121212.com/blog/2016/07/ugly-go-polymorphic/" rel="full-article">Read On &rarr;</a>
-              </footer>
-          
-
-        
-
-    </article>
-    
     
     
 
@@ -374,6 +374,10 @@
     <section class="even">
       <h1>最近发布</h1>
       <ul id="recent_posts">
+        
+          <li class="post">
+            <a href="/blog/2016/07/understand-rest/">理解REST</a>
+          </li>
         
           <li class="post">
             <a href="/blog/2016/07/async-promise-model/">异步编程的Promise模式</a>

@@ -19,7 +19,7 @@
 
 
   
-  <title>如何进行技术选型</title>
+  <title>理解REST</title>
 
   
   
@@ -96,11 +96,11 @@
 
 <header>
     <h1 class="entry-title">
-         如何进行技术选型 
+         理解REST 
     </h1>
-    <p class="meta">Jul 11, 2016
+    <p class="meta">Jul 17, 2016
          - 1 minute read 
-         - <a href="http://damon121212.com/blog/2016/07/how-to-choose-tech-for-developing/#disqus_thread">Comments</a>
+         - <a href="http://damon121212.com/blog/2016/07/understand-rest/#disqus_thread">Comments</a>
 
         
     </p>
@@ -111,39 +111,93 @@
           
           
           
-          <p>对于开发而言，技术选型是重中之重，然而实际经历过的选型大概有这么几种</p>
+          
+
+<p>REST(Representational State Transfer：表述性状态传递)，由Roy Fielding在他2000年时的
+<a href="http://www.ics.uci.edu/%7Efielding/pubs/dissertation/top.htm" target="_blank">博士论文</a>中引入和定义的。
+REST是为分布式定义的一个架构形式，它不是一个标准，但有一些限制：如状态，client/server关系，统一的接口形式。
+REST通常用HTTP实现。</p>
+
+<h2 id="rest原则">REST原则</h2>
 
 <ul>
-<li>我就只知道这种技术，没得选</li>
-<li>我听过某个很热门，就选那种</li>
-<li>网上搜到某个问题可以用某个技术解决，就这了。</li>
-<li>经过仔细研究调查，然后选择某种</li>
+<li><strong>资源</strong> 可以通过结构化的URI方便导出</li>
+<li><strong>表述性</strong> 通过JSON或者XML来表述数据对象和属性</li>
+<li><strong>消息</strong> 显式使用HTTP方法（GET,POST,PUT,DELETE)</li>
+<li><strong>无状态</strong> client和server之间的交互无上下文，状态依赖和扩展是可以扩展，client不保存session状态。</li>
 </ul>
 
-<p>刚毕业的时候在小公司时，基本上就只会第一二三种方式来进行选型，熬过几年，有人提点后，才会慢慢懂得怎么来选型。</p>
+<h2 id="http方法">HTTP方法</h2>
 
-<p>对于个人型的项目，第一二种只是个人行为，无所谓。但对于公司项目，如果还是这么选型的话，就只能呵呵了。</p>
+<p>使用HTTP方法匹配CRUD(create, retrieve, update, delete)操作。</p>
 
-<p>对于语言的选型，通常需要考虑这么几个事情：</p>
+<h3 id="get">GET</h3>
+
+<p>获取信息，GET请求必须安全并且幂等，即无论同一个参数请求多少次，都返回同样的结果。
+可以有副作用，但用户并不关注这个副作用，所以不能运行系统中至关重要的操作。
+请求可以是部分或者条件的。</p>
+
+<p>示例为用ID为1的获取地址:</p>
+
+<pre><code>GET /addresses/1
+</code></pre>
+
+<h3 id="post">POST</h3>
+
+<p>通常POST用来创建一个新的实体，但不用来更新一个实体。</p>
+
+<p>创建新的地址</p>
+
+<pre><code>POST /addresses
+</code></pre>
+
+<h3 id="put">PUT</h3>
+
+<p>在URI中存储实体，可以用来创建一个新的实体或者更新一个实体。一个PUT请求是幂等的。
+幂等是PUT动作和POST请求之间的最大差异</p>
+
+<p>修改ID为1的地址</p>
+
+<pre><code>PUT /addresses/1
+</code></pre>
+
+<blockquote>
+<p>注意：PUT替换原来已经存在的实体，如果仅提供数据元素的子集，REST将更新为空或者null。</p>
+</blockquote>
+
+<h3 id="patch">PATCH</h3>
+
+<p>更新URI中的指定字段，PATCH是幂等的。</p>
+
+<pre><code>PATCH /addresses/1
+</code></pre>
+
+<h3 id="delete">DELETE</h3>
+
+<p>移除资源，但不需要立即移除资源，可以异步处理或者很长时间的请求。</p>
+
+<pre><code>DELETE /addresses/1
+</code></pre>
+
+<h2 id="http状态码">HTTP状态码</h2>
+
+<p>HTTP请求结果的的状态显示</p>
 
 <ul>
-<li>对于初创公司，这么语言的开发效率快不快</li>
-<li>对于成熟的公司，这门语言的招人容易不容易</li>
-<li>这门语言的第三方周边库丰富不丰富</li>
-<li>团队中的成员是否有足够的能力驾驭这门语言</li>
-<li>这门语言可以<strong>快速</strong>解决什么样的问题</li>
+<li><strong>1xx</strong> - 信息</li>
+<li><strong>2xx</strong> - 成功</li>
+<li><strong>3xx</strong> - 跳转</li>
+<li><strong>4xx</strong> - client错误</li>
+<li><strong>5xx</strong> - server错误</li>
 </ul>
 
-<p>对于开源库（开源产品）的选型，通常需要考虑下面几个问题：</p>
+<h2 id="media类型">Media类型</h2>
 
-<ul>
-<li>库是否足够稳定</li>
-<li>库是否持久维护</li>
-<li>库是否按照开源规范维护</li>
-<li>如果库中出现问题，是否能够修正或者快速找人修正</li>
-<li>库的版权是否合适</li>
-<li>库的周边是否丰富（如文档，如插件）</li>
-</ul>
+<p>HTTP请求头中的<code>Accept</code>和<code>Content-Type</code>可以用来描述HTTP中发送或者请求的内容。当client
+设置<code>Accept</code>为 <code>application/json</code> 时，希望请求可以返回一个JSON信息。当client设置
+<code>Content-Type</code>为<code>application/xml</code>时，client将使用XML数据进行请求。</p>
+
+<p>来自：<a href="https://spring.io/understanding/REST" target="_blank">https://spring.io/understanding/REST</a></p>
 
         </div>
         
@@ -152,9 +206,12 @@
   <p class="meta">
     <span class="byline author vcard">Posted by <span class="fn">DamonChen</span></span>
     
-    <time>Jul 11, 2016</time>
+    <time>Jul 17, 2016</time>
     <span class="categories">
       Tags:
+        
+        
+          <a class="category" href="http://damon121212.com/tags/rest">REST</a>  
         
     </span>
   </p>
@@ -166,11 +223,9 @@
 
   <p class="meta">
     
-        <a class="basic-alignment left" href="http://damon121212.com/blog/2016/07/docker-compose-start/" title="docker compose start">docker compose start</a>
+        <a class="basic-alignment left" href="http://damon121212.com/blog/2016/07/async-promise-model/" title="异步编程的Promise模式">异步编程的Promise模式</a>
     
 
-    
-      <a class="basic-alignment right" href="http://damon121212.com/blog/2016/07/async-promise-model/" title="异步编程的Promise模式">异步编程的Promise模式</a>
     
   </p>
   
