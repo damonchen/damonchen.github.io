@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>前端 on DamonChen Blog</title>
+    <link>https://damonchen.github.io/tags/%E5%89%8D%E7%AB%AF/</link>
+    <description>Recent content in 前端 on DamonChen Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 16 Jul 2016 14:41:09 +0800</lastBuildDate><atom:link href="https://damonchen.github.io/tags/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Async Promise Model</title>
+      <link>https://damonchen.github.io/post/async-promise-model/</link>
+      <pubDate>Sat, 16 Jul 2016 14:41:09 +0800</pubDate>
+      
+      <guid>https://damonchen.github.io/post/async-promise-model/</guid>
+      <description>异步编程的Promise模式 promise 代表了一个种可能会长时间运行而且不一定必须完成的操作结果。这种模式不会阻塞和等待长时间的操作完成， 而是返回了一个代表承诺的(promised)结果的对象。 promise的模式在任何时刻都处于以下三种状态之一：未完成(unfulfilled)，已完成(</description>
+    </item>
+    
+  </channel>
+</rss>

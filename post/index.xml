@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on DamonChen Blog</title>
+    <link>https://damonchen.github.io/post/</link>
+    <description>Recent content in Posts on DamonChen Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 25 Mar 2021 16:59:07 +0800</lastBuildDate><atom:link href="https://damonchen.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>读书列表</title>
+      <link>https://damonchen.github.io/post/books/booklist/</link>
+      <pubDate>Thu, 25 Mar 2021 16:59:07 +0800</pubDate>
+      
+      <guid>https://damonchen.github.io/post/books/booklist/</guid>
+      <description>说明 读万卷书，行万里路 技术书籍 书名 开始时间 结束时间 作者 简介 性能之巅 2021-03-25 Gregg CPU/内存/磁盘/网络/方法论 Kubernets权威指南 2021-03-25 龚正等 K8s</description>
+    </item>
+    
+    <item>
+      <title>你应该用的一些命令行</title>
+      <link>https://damonchen.github.io/post/tools/commands-intro/</link>
+      <pubDate>Thu, 25 Mar 2021 16:48:34 +0800</pubDate>
+      
+      <guid>https://damonchen.github.io/post/tools/commands-intro/</guid>
+      <description>有很多命令行工具，非常有用，此处列之，以备查看 网络 mtr：查看你的网络哪里出问题了 tshark：wireshark中附带的命令行工具 文本 jq: 终端下json的query，awk的翻版 bat：高亮显示文本 rg：快速搜索</description>
+    </item>
+    
+    <item>
+      <title>常用工具</title>
+      <link>https://damonchen.github.io/post/tools/most-use-tool/</link>
+      <pubDate>Thu, 25 Mar 2021 16:34:05 +0800</pubDate>
+      
+      <guid>https://damonchen.github.io/post/tools/most-use-tool/</guid>
+      <description>侯捷在《深入浅出MFC》中有一言： 工欲善其事，必先利其器 技术开发的本质，是需要更高效的完成一些工作，所以更高效的工作是一个技术开发者必须追求的事情，本文记录下一些非常不错的软件及命令工具 来源 github 少数派 知乎 利器 终端 iterm2 + zsh + tmux Jetbrains Goland： Go开发工具 PyCharm： Python开发</description>
+    </item>
+    
+    <item>
+      <title>如何进行技术选型</title>
+      <link>https://damonchen.github.io/post/how-to-choose-tech-for-developing/</link>
+      <pubDate>Thu, 25 Mar 2021 14:41:34 +0800</pubDate>
+      
+      <guid>https://damonchen.github.io/post/how-to-choose-tech-for-developing/</guid>
+      <description>对于开发而言，技术选型是重中之重，然而实际经历过的选型大概有这么几种 我就只知道这种技术，没得选 我听过某个很热门，就选那种 网上搜到某个问题可以用某个技术解决，就这了。 经过仔细研究调查，然后选择某种 刚毕业的时候在小公司时，基本上就只会第一二三种方式来进行选型，熬过几年，有人提点后，才</description>
+    </item>
+    
+    <item>
+      <title>将Go编译为Plan9的汇编代码</title>
+      <link>https://damonchen.github.io/post/go-asm-1/</link>
+      <pubDate>Thu, 25 Mar 2021 14:28:54 +0800</pubDate>
+      
+      <guid>https://damonchen.github.io/post/go-asm-1/</guid>
+      <description>源代码到汇编 假设在main.go文件中有如下代码： 1 2 3 4 5 6 7 8 9 package main func add(a, b int) int { return a + b } func main() { println(add(5,7)) } 可以使用如下方式编译出汇编代码： 1 GOOS=linux GOARCH=amd64 go tool compile -S main.go 将得到如下的信息： &amp;quot;&amp;quot;.add STEXT nosplit size=19 args=0x18 locals=0x0 funcid=0x0 0x0000 00000 (main.go:3) TEXT &amp;quot;&amp;quot;.add(SB), NOSPLIT|ABIInternal, $0-24 0x0000 00000 (main.go:3) FUNCDATA $0, gclocals·33cdeccccebe80329f1fdbee7f5</description>
+    </item>
+    
+    <item>
+      <title>Understand Rest</title>
+      <link>https://damonchen.github.io/post/understand-rest/</link>
+      <pubDate>Sun, 17 Jul 2016 14:40:43 +0800</pubDate>
+      
+      <guid>https://damonchen.github.io/post/understand-rest/</guid>
+      <description>理解REST REST(Representational State Transfer：表述性状态传递)，由Roy Fielding在他2000年时的 博士论文中引入和定义的。 REST是为分布式定义的一个架构形式，它不是一个标准，但有一些限制：如状态，client/server关系，统一的接口形式。 REST通常用HTTP实现。 REST原</description>
+    </item>
+    
+    <item>
+      <title>Async Promise Model</title>
+      <link>https://damonchen.github.io/post/async-promise-model/</link>
+      <pubDate>Sat, 16 Jul 2016 14:41:09 +0800</pubDate>
+      
+      <guid>https://damonchen.github.io/post/async-promise-model/</guid>
+      <description>异步编程的Promise模式 promise 代表了一个种可能会长时间运行而且不一定必须完成的操作结果。这种模式不会阻塞和等待长时间的操作完成， 而是返回了一个代表承诺的(promised)结果的对象。 promise的模式在任何时刻都处于以下三种状态之一：未完成(unfulfilled)，已完成(</description>
+    </item>
+    
+    <item>
+      <title>Docker Compose Start</title>
+      <link>https://damonchen.github.io/post/docker-compose-start/</link>
+      <pubDate>Thu, 07 Jul 2016 14:41:50 +0800</pubDate>
+      
+      <guid>https://damonchen.github.io/post/docker-compose-start/</guid>
+      <description>docker启动时不同镜像之间的链接的处理是比较麻烦的，所以官方目前有一个docker-compose用来做这些事情，官方给的例子是这样的。 构建一个Web应用 官方使用Python下的Flask框架构建的应用，创建了一个app.py的文件： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 from flask import Flask from redis</description>
+    </item>
+    
+    <item>
+      <title>Go中使用uint64遇到的问题</title>
+      <link>https://damonchen.github.io/post/golang-with-uint64-problems/</link>
+      <pubDate>Wed, 06 Jul 2016 14:42:09 +0800</pubDate>
+      
+      <guid>https://damonchen.github.io/post/golang-with-uint64-problems/</guid>
+      <description>因为设计的缘故，我们内部系统使用了不少了uint64，同时也带来了很多问题： 在Go的mysql实现中，对于uint64的转换，是分两部分的，具体代码（https://github.com/go-sql-driver/mysql/blob/master/packets.go#113</description>
+    </item>
+    
+    <item>
+      <title>Golang Routine Id</title>
+      <link>https://damonchen.github.io/post/golang-routine-id/</link>
+      <pubDate>Tue, 05 Jul 2016 14:42:22 +0800</pubDate>
+      
+      <guid>https://damonchen.github.io/post/golang-routine-id/</guid>
+      <description>在Go中，系统是不提供goroutine的id给外界的，丫的认为这事情不应该提供给用户来使用。 可有时候，实在是觉得这个东西必须得有呀，比方说后台开了个goroutine进行http请求的处理，这个免不了要打个日志什么的， 当并发量稍微大点的时候，就会发现这些信息的输出就交叉错乱在一</description>
+    </item>
+    
+    <item>
+      <title>linux标准daemon编写方式</title>
+      <link>https://damonchen.github.io/post/daemon-process/</link>
+      <pubDate>Mon, 04 Jul 2016 14:43:10 +0800</pubDate>
+      
+      <guid>https://damonchen.github.io/post/daemon-process/</guid>
+      <description>daemon定义 运行在后台的程序，通常不需要与用户进行交互的。 任何父进程id是0的通常是kernel进程，作为系统启动的一部分，除了init是用户态的命令。 规则 第一件事情是调用umask设置文件模型的mask为0，文件mode creation mask可以被进程继承，但daemon进程需要创建文</description>
+    </item>
+    
+    <item>
+      <title>golang中几种加密方式的处理</title>
+      <link>https://damonchen.github.io/post/golang-encrypt-sample/</link>
+      <pubDate>Mon, 04 Jul 2016 14:42:59 +0800</pubDate>
+      
+      <guid>https://damonchen.github.io/post/golang-encrypt-sample/</guid>
+      <description>缘由 在与第三方平台进行接入的时候，通常会存在一些签名或者加密的处理，在进行开发的时候，因为语言的 不同，需要按照规范进行相应处理。 DES加解密 DES：https://en.wikipedia.org/wiki/Data_Encryption_Standard golang中的标准库c</description>
+    </item>
+    
+    <item>
+      <title>golang的一个丑陋实现</title>
+      <link>https://damonchen.github.io/post/ugly-go-polymorphic/</link>
+      <pubDate>Mon, 04 Jul 2016 14:42:47 +0800</pubDate>
+      
+      <guid>https://damonchen.github.io/post/ugly-go-polymorphic/</guid>
+      <description>好多些天前，我在Golang实践群里问了下面代码的问题： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 package main import &amp;#34;fmt&amp;#34; type Aer interface{ Name()string PrintName() } type A struct { } func (a *A) Name() string { return &amp;#34;a&amp;#34; } func (a *A) PrintName() { fmt.Println(a.Name()) } type B struct { A } func (b *B) Name() string { return &amp;#34;b&amp;#34; } func getAer() Aer { return &amp;amp;B{} } func main() { a := getAer() a.printName() } 这个实现中，Go中输出出的是</description>
+    </item>
+    
+  </channel>
+</rss>
