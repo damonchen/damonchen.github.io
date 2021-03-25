@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docker Compose on Damon小站</title>
-    <link>http://damon121212.com/tags/docker-compose/</link>
+    <link>https://damonchen.github.io/tags/docker-compose/</link>
     <description>Recent content in Docker Compose on Damon小站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <lastBuildDate>Thu, 07 Jul 2016 11:43:00 +0800</lastBuildDate>
-    <atom:link href="http://damon121212.com/tags/docker-compose/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://damonchen.github.io/tags/docker-compose/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>docker compose start</title>
-      <link>http://damon121212.com/blog/2016/07/docker-compose-start/</link>
+      <link>https://damonchen.github.io/blog/2016/07/docker-compose-start/</link>
       <pubDate>Thu, 07 Jul 2016 11:43:00 +0800</pubDate>
       
-      <guid>http://damon121212.com/blog/2016/07/docker-compose-start/</guid>
+      <guid>https://damonchen.github.io/blog/2016/07/docker-compose-start/</guid>
       <description>
 
 &lt;p&gt;&lt;code&gt;docker&lt;/code&gt;启动时不同镜像之间的链接的处理是比较麻烦的，所以官方目前有一个&lt;code&gt;docker-compose&lt;/code&gt;用来做这些事情，官方给的例子是这样的。&lt;/p&gt;
