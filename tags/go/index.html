@@ -81,7 +81,7 @@
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://damonchen.github.io/post/go-asm-1/">将Go编译为Plan9的汇编代码</a>
+                <a href="https://damonchen.github.io/post/golang/go-asm-1/">将Go编译为Plan9的汇编代码</a>
             </h1>
         </header>
         <date class="post-meta meta-date">
@@ -97,14 +97,14 @@
         
         <div class="post-content">
             源代码到汇编 假设在main.go文件中有如下代码： 1 2 3 4 5 6 7 8 9 package main func add(a, b int) int { return a + b } func main() { println(add(5,7)) } 可以使用如下方式编译出汇编代码： 1 GOOS=linux GOARCH=amd64 go tool compile -S main.go 将得到如下的信息： &quot;&quot;.add STEXT nosplit size=19 args=0x18 locals=0x0 funcid=0x0 0x0000 00000 (main.go:3) TEXT &quot;&quot;.add(SB), NOSPLIT|ABIInternal, $0-24 0x0000 00000 (main.go:3) FUNCDATA $0, gclocals·33cdeccccebe80329f1fdbee7f5……
-            <p class="readmore"><a href="https://damonchen.github.io/post/go-asm-1/">阅读全文</a></p>
+            <p class="readmore"><a href="https://damonchen.github.io/post/golang/go-asm-1/">阅读全文</a></p>
         </div>
     </article>
     
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://damonchen.github.io/post/golang-with-uint64-problems/">Go中使用uint64遇到的问题</a>
+                <a href="https://damonchen.github.io/post/golang/golang-with-uint64-problems/">Go中使用uint64遇到的问题</a>
             </h1>
         </header>
         <date class="post-meta meta-date">
@@ -120,14 +120,14 @@
         
         <div class="post-content">
             因为设计的缘故，我们内部系统使用了不少了uint64，同时也带来了很多问题： 在Go的mysql实现中，对于uint64的转换，是分两部分的，具体代码（https://github.com/go-sql-driver/mysql/blob/master/packets.go#113……
-            <p class="readmore"><a href="https://damonchen.github.io/post/golang-with-uint64-problems/">阅读全文</a></p>
+            <p class="readmore"><a href="https://damonchen.github.io/post/golang/golang-with-uint64-problems/">阅读全文</a></p>
         </div>
     </article>
     
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://damonchen.github.io/post/golang-routine-id/">Golang Routine Id</a>
+                <a href="https://damonchen.github.io/post/golang/golang-routine-id/">Golang Routine Id</a>
             </h1>
         </header>
         <date class="post-meta meta-date">
@@ -143,14 +143,14 @@
         
         <div class="post-content">
             在Go中，系统是不提供goroutine的id给外界的，丫的认为这事情不应该提供给用户来使用。 可有时候，实在是觉得这个东西必须得有呀，比方说后台开了个goroutine进行http请求的处理，这个免不了要打个日志什么的， 当并发量稍微大点的时候，就会发现这些信息的输出就交叉错乱在一……
-            <p class="readmore"><a href="https://damonchen.github.io/post/golang-routine-id/">阅读全文</a></p>
+            <p class="readmore"><a href="https://damonchen.github.io/post/golang/golang-routine-id/">阅读全文</a></p>
         </div>
     </article>
     
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://damonchen.github.io/post/golang-encrypt-sample/">golang中几种加密方式的处理</a>
+                <a href="https://damonchen.github.io/post/golang/golang-encrypt-sample/">golang中几种加密方式的处理</a>
             </h1>
         </header>
         <date class="post-meta meta-date">
@@ -166,7 +166,7 @@
         
         <div class="post-content">
             缘由 在与第三方平台进行接入的时候，通常会存在一些签名或者加密的处理，在进行开发的时候，因为语言的 不同，需要按照规范进行相应处理。 DES加解密 DES：https://en.wikipedia.org/wiki/Data_Encryption_Standard golang中的标准库c……
-            <p class="readmore"><a href="https://damonchen.github.io/post/golang-encrypt-sample/">阅读全文</a></p>
+            <p class="readmore"><a href="https://damonchen.github.io/post/golang/golang-encrypt-sample/">阅读全文</a></p>
         </div>
     </article>
     
@@ -229,6 +229,34 @@
 <ul class="widget-list">
     
     <li>
+        <a href="https://damonchen.github.io/post/k8s/tools/" title="k8s相关的工具">k8s相关的工具</a>
+    </li>
+    
+    <li>
+        <a href="https://damonchen.github.io/post/golang/golang-graceful-lib/" title="go的库收集">go的库收集</a>
+    </li>
+    
+    <li>
+        <a href="https://damonchen.github.io/post/golang/golang-trips/" title="Golang Trips">Golang Trips</a>
+    </li>
+    
+    <li>
+        <a href="https://damonchen.github.io/post/golang/golang-tool/" title="Go语言相关的工具">Go语言相关的工具</a>
+    </li>
+    
+    <li>
+        <a href="https://damonchen.github.io/post/k8s/install/" title="k8s-环境搭建">k8s-环境搭建</a>
+    </li>
+    
+    <li>
+        <a href="https://damonchen.github.io/post/pcap-filter-syntax/" title="Pcap Filter Syntax">Pcap Filter Syntax</a>
+    </li>
+    
+    <li>
+        <a href="https://damonchen.github.io/post/golang/go-graceful-restart/" title="Go Graceful Restart">Go Graceful Restart</a>
+    </li>
+    
+    <li>
         <a href="https://damonchen.github.io/post/books/booklist/" title="读书列表">读书列表</a>
     </li>
     
@@ -238,34 +266,6 @@
     
     <li>
         <a href="https://damonchen.github.io/post/tools/most-use-tool/" title="常用工具">常用工具</a>
-    </li>
-    
-    <li>
-        <a href="https://damonchen.github.io/post/how-to-choose-tech-for-developing/" title="如何进行技术选型">如何进行技术选型</a>
-    </li>
-    
-    <li>
-        <a href="https://damonchen.github.io/post/go-asm-1/" title="将Go编译为Plan9的汇编代码">将Go编译为Plan9的汇编代码</a>
-    </li>
-    
-    <li>
-        <a href="https://damonchen.github.io/post/understand-rest/" title="Understand Rest">Understand Rest</a>
-    </li>
-    
-    <li>
-        <a href="https://damonchen.github.io/post/async-promise-model/" title="Async Promise Model">Async Promise Model</a>
-    </li>
-    
-    <li>
-        <a href="https://damonchen.github.io/post/docker-compose-start/" title="Docker Compose Start">Docker Compose Start</a>
-    </li>
-    
-    <li>
-        <a href="https://damonchen.github.io/post/golang-with-uint64-problems/" title="Go中使用uint64遇到的问题">Go中使用uint64遇到的问题</a>
-    </li>
-    
-    <li>
-        <a href="https://damonchen.github.io/post/golang-routine-id/" title="Golang Routine Id">Golang Routine Id</a>
     </li>
     
 </ul>
@@ -281,7 +281,9 @@
     
     <li><a href="https://damonchen.github.io/categories/go/">go (4)</a></li>
     
-    <li><a href="https://damonchen.github.io/categories/linux/">linux (3)</a></li>
+    <li><a href="https://damonchen.github.io/categories/k8s/">k8s (2)</a></li>
+    
+    <li><a href="https://damonchen.github.io/categories/linux/">linux (4)</a></li>
     
     <li><a href="https://damonchen.github.io/categories/%E5%89%8D%E7%AB%AF/">前端 (1)</a></li>
     
@@ -306,7 +308,11 @@
     
     <a href="https://damonchen.github.io/tags/go/">go</a>
     
+    <a href="https://damonchen.github.io/tags/k8s/">k8s</a>
+    
     <a href="https://damonchen.github.io/tags/linux/">linux</a>
+    
+    <a href="https://damonchen.github.io/tags/network/">network</a>
     
     <a href="https://damonchen.github.io/tags/promise/">promise</a>
     

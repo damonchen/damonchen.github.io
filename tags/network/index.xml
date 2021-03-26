@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>network on DamonChen Blog</title>
+    <link>https://damonchen.github.io/tags/network/</link>
+    <description>Recent content in network on DamonChen Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 25 Mar 2021 18:27:38 +0800</lastBuildDate><atom:link href="https://damonchen.github.io/tags/network/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pcap Filter Syntax</title>
+      <link>https://damonchen.github.io/post/pcap-filter-syntax/</link>
+      <pubDate>Thu, 25 Mar 2021 18:27:38 +0800</pubDate>
+      
+      <guid>https://damonchen.github.io/post/pcap-filter-syntax/</guid>
+      <description>pcap是一个广泛被使用的库，所以pcap对应的过滤器也是广泛应用在各种工具中。 基本组成 过滤器表达式由一个或多个primitives（原语） type：id或者number表示的type，可以为：host,net,port,portrange，如果没有指定type，使用host di</description>
+    </item>
+    
+  </channel>
+</rss>

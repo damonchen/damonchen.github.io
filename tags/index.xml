@@ -6,22 +6,40 @@
     <description>Recent content in Tags on DamonChen Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 25 Mar 2021 16:48:34 +0800</lastBuildDate><atom:link href="https://damonchen.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 26 Mar 2021 14:35:39 +0800</lastBuildDate><atom:link href="https://damonchen.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>command</title>
-      <link>https://damonchen.github.io/tags/command/</link>
-      <pubDate>Thu, 25 Mar 2021 16:48:34 +0800</pubDate>
+      <title>k8s</title>
+      <link>https://damonchen.github.io/tags/k8s/</link>
+      <pubDate>Fri, 26 Mar 2021 14:35:39 +0800</pubDate>
       
-      <guid>https://damonchen.github.io/tags/command/</guid>
+      <guid>https://damonchen.github.io/tags/k8s/</guid>
       <description></description>
     </item>
     
     <item>
       <title>linux</title>
       <link>https://damonchen.github.io/tags/linux/</link>
-      <pubDate>Thu, 25 Mar 2021 16:48:34 +0800</pubDate>
+      <pubDate>Thu, 25 Mar 2021 18:27:38 +0800</pubDate>
       
       <guid>https://damonchen.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>network</title>
+      <link>https://damonchen.github.io/tags/network/</link>
+      <pubDate>Thu, 25 Mar 2021 18:27:38 +0800</pubDate>
+      
+      <guid>https://damonchen.github.io/tags/network/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>command</title>
+      <link>https://damonchen.github.io/tags/command/</link>
+      <pubDate>Thu, 25 Mar 2021 16:48:34 +0800</pubDate>
+      
+      <guid>https://damonchen.github.io/tags/command/</guid>
       <description></description>
     </item>
     

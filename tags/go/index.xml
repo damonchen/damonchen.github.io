@@ -9,37 +9,37 @@
     <lastBuildDate>Thu, 25 Mar 2021 14:28:54 +0800</lastBuildDate><atom:link href="https://damonchen.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>将Go编译为Plan9的汇编代码</title>
-      <link>https://damonchen.github.io/post/go-asm-1/</link>
+      <link>https://damonchen.github.io/post/golang/go-asm-1/</link>
       <pubDate>Thu, 25 Mar 2021 14:28:54 +0800</pubDate>
       
-      <guid>https://damonchen.github.io/post/go-asm-1/</guid>
+      <guid>https://damonchen.github.io/post/golang/go-asm-1/</guid>
       <description>源代码到汇编 假设在main.go文件中有如下代码： 1 2 3 4 5 6 7 8 9 package main func add(a, b int) int { return a + b } func main() { println(add(5,7)) } 可以使用如下方式编译出汇编代码： 1 GOOS=linux GOARCH=amd64 go tool compile -S main.go 将得到如下的信息： &amp;quot;&amp;quot;.add STEXT nosplit size=19 args=0x18 locals=0x0 funcid=0x0 0x0000 00000 (main.go:3) TEXT &amp;quot;&amp;quot;.add(SB), NOSPLIT|ABIInternal, $0-24 0x0000 00000 (main.go:3) FUNCDATA $0, gclocals·33cdeccccebe80329f1fdbee7f5</description>
     </item>
     
     <item>
       <title>Go中使用uint64遇到的问题</title>
-      <link>https://damonchen.github.io/post/golang-with-uint64-problems/</link>
+      <link>https://damonchen.github.io/post/golang/golang-with-uint64-problems/</link>
       <pubDate>Wed, 06 Jul 2016 14:42:09 +0800</pubDate>
       
-      <guid>https://damonchen.github.io/post/golang-with-uint64-problems/</guid>
+      <guid>https://damonchen.github.io/post/golang/golang-with-uint64-problems/</guid>
       <description>因为设计的缘故，我们内部系统使用了不少了uint64，同时也带来了很多问题： 在Go的mysql实现中，对于uint64的转换，是分两部分的，具体代码（https://github.com/go-sql-driver/mysql/blob/master/packets.go#113</description>
     </item>
     
     <item>
       <title>Golang Routine Id</title>
-      <link>https://damonchen.github.io/post/golang-routine-id/</link>
+      <link>https://damonchen.github.io/post/golang/golang-routine-id/</link>
       <pubDate>Tue, 05 Jul 2016 14:42:22 +0800</pubDate>
       
-      <guid>https://damonchen.github.io/post/golang-routine-id/</guid>
+      <guid>https://damonchen.github.io/post/golang/golang-routine-id/</guid>
       <description>在Go中，系统是不提供goroutine的id给外界的，丫的认为这事情不应该提供给用户来使用。 可有时候，实在是觉得这个东西必须得有呀，比方说后台开了个goroutine进行http请求的处理，这个免不了要打个日志什么的， 当并发量稍微大点的时候，就会发现这些信息的输出就交叉错乱在一</description>
     </item>
     
     <item>
       <title>golang中几种加密方式的处理</title>
-      <link>https://damonchen.github.io/post/golang-encrypt-sample/</link>
+      <link>https://damonchen.github.io/post/golang/golang-encrypt-sample/</link>
       <pubDate>Mon, 04 Jul 2016 14:42:59 +0800</pubDate>
       
-      <guid>https://damonchen.github.io/post/golang-encrypt-sample/</guid>
+      <guid>https://damonchen.github.io/post/golang/golang-encrypt-sample/</guid>
       <description>缘由 在与第三方平台进行接入的时候，通常会存在一些签名或者加密的处理，在进行开发的时候，因为语言的 不同，需要按照规范进行相应处理。 DES加解密 DES：https://en.wikipedia.org/wiki/Data_Encryption_Standard golang中的标准库c</description>
     </item>
     

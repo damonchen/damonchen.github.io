@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+
+    <title>Go语言相关的工具 | DamonChen Blog</title>
+    <meta property="og:title" content="Go语言相关的工具 - DamonChen Blog">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2021-03-26T12:14:50&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2021-03-26T12:14:50&#43;08:00'>
+        
+    <meta name="Keywords" content="">
+    <meta name="description" content="Go语言相关的工具">
+        
+    <meta name="author" content="DamonChen">
+    <meta property="og:url" content="https://damonchen.github.io/post/golang/golang-tool/">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+        <link rel="stylesheet" href='/css/douban.css'>
+    
+        <link rel="stylesheet" href='/css/other.css'>
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://damonchen.github.io">
+                        DamonChen Blog
+                    </a>
+                
+                
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://damonchen.github.io">首页</a>
+                    
+                    <a  href="https://damonchen.github.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">Go语言相关的工具</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2021年3月26日
+        </date>
+        
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span>
+                    阅读</span></span>
+        </div>
+        
+        
+        <div class="post-content">
+            <p>记录分两大块，一块是用来对go本身的工具，另一块是用go编写的一些工具，基本都是命令行工具。</p>
+<h3 id="go开发工具">go开发工具</h3>
+<ul>
+<li>github.com/segmentio/golines： 用来将长行代码格式化为短的代码</li>
+<li>goimports</li>
+<li>delve</li>
+<li>shadow：用来检测变量，
+<ul>
+<li>go get -u golang.org/x/tools/go/analysis/passes/shadow/cmd/shadow</li>
+<li>go vet -vettool=$(which shadow)</li>
+</ul>
+</li>
+</ul>
+<h3 id="go开发的工具">go开发的工具</h3>
+
+        </div>
+
+        
+
+
+        
+
+
+        <div class="post-meta meta-tags">
+            
+            没有标签
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2021 <a href="https://damonchen.github.io">DamonChen Blog By DamonChen</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+    <script src='/js/douban.js'></script>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='https://damonchen.github.io/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://damonchen.github.io">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://damonchen.github.io/post/k8s/tools/" title="k8s相关的工具">k8s相关的工具</a>
+    </li>
+    
+    <li>
+        <a href="https://damonchen.github.io/post/golang/golang-graceful-lib/" title="go的库收集">go的库收集</a>
+    </li>
+    
+    <li>
+        <a href="https://damonchen.github.io/post/golang/golang-trips/" title="Golang Trips">Golang Trips</a>
+    </li>
+    
+    <li>
+        <a href="https://damonchen.github.io/post/golang/golang-tool/" title="Go语言相关的工具">Go语言相关的工具</a>
+    </li>
+    
+    <li>
+        <a href="https://damonchen.github.io/post/k8s/install/" title="k8s-环境搭建">k8s-环境搭建</a>
+    </li>
+    
+    <li>
+        <a href="https://damonchen.github.io/post/pcap-filter-syntax/" title="Pcap Filter Syntax">Pcap Filter Syntax</a>
+    </li>
+    
+    <li>
+        <a href="https://damonchen.github.io/post/golang/go-graceful-restart/" title="Go Graceful Restart">Go Graceful Restart</a>
+    </li>
+    
+    <li>
+        <a href="https://damonchen.github.io/post/books/booklist/" title="读书列表">读书列表</a>
+    </li>
+    
+    <li>
+        <a href="https://damonchen.github.io/post/tools/commands-intro/" title="你应该用的一些命令行">你应该用的一些命令行</a>
+    </li>
+    
+    <li>
+        <a href="https://damonchen.github.io/post/tools/most-use-tool/" title="常用工具">常用工具</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="https://damonchen.github.io/categories/docker/">docker (1)</a></li>
+    
+    <li><a href="https://damonchen.github.io/categories/go/">go (4)</a></li>
+    
+    <li><a href="https://damonchen.github.io/categories/k8s/">k8s (2)</a></li>
+    
+    <li><a href="https://damonchen.github.io/categories/linux/">linux (4)</a></li>
+    
+    <li><a href="https://damonchen.github.io/categories/%E5%89%8D%E7%AB%AF/">前端 (1)</a></li>
+    
+    <li><a href="https://damonchen.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈 (2)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="https://damonchen.github.io/tags/app/">app</a>
+    
+    <a href="https://damonchen.github.io/tags/command/">command</a>
+    
+    <a href="https://damonchen.github.io/tags/daemon/">daemon</a>
+    
+    <a href="https://damonchen.github.io/tags/design/">design</a>
+    
+    <a href="https://damonchen.github.io/tags/docker/">docker</a>
+    
+    <a href="https://damonchen.github.io/tags/go/">go</a>
+    
+    <a href="https://damonchen.github.io/tags/k8s/">k8s</a>
+    
+    <a href="https://damonchen.github.io/tags/linux/">linux</a>
+    
+    <a href="https://damonchen.github.io/tags/network/">network</a>
+    
+    <a href="https://damonchen.github.io/tags/promise/">promise</a>
+    
+    <a href="https://damonchen.github.io/tags/tech/">tech</a>
+    
+    <a href="https://damonchen.github.io/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+    
+    <a href="https://damonchen.github.io/tags/%E6%9D%82%E8%B0%88/">杂谈</a>
+    
+</div>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://damonchen.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

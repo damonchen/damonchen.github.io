@@ -72,6 +72,139 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://damonchen.github.io/post/k8s/tools/" title="k8s相关的工具">k8s相关的工具</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2021年3月26日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='/categories/k8s'>k8s</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            k8s有一系列相关的工具 祖传的 kubeadm kubelet kubectl minkube 便捷使用 k9s kubenvz （管理kubectl, kustomize, helm, helmfile版本）……
+        </div>
+        <p class="readmore"><a href="https://damonchen.github.io/post/k8s/tools/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://damonchen.github.io/post/golang/golang-graceful-lib/" title="go的库收集">go的库收集</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2021年3月26日
+        </date>
+        
+        <div class="post-content">
+            自己维护的一份go的库 暂定 dst: 一个优秀golang的ast库，可保留注释位置 jennifer: 一个用来做generator的库，配合dst更好使……
+        </div>
+        <p class="readmore"><a href="https://damonchen.github.io/post/golang/golang-graceful-lib/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://damonchen.github.io/post/golang/golang-trips/" title="Golang Trips">Golang Trips</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2021年3月26日
+        </date>
+        
+        <div class="post-content">
+            ……
+        </div>
+        <p class="readmore"><a href="https://damonchen.github.io/post/golang/golang-trips/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://damonchen.github.io/post/golang/golang-tool/" title="Go语言相关的工具">Go语言相关的工具</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2021年3月26日
+        </date>
+        
+        <div class="post-content">
+            记录分两大块，一块是用来对go本身的工具，另一块是用go编写的一些工具，基本都是命令行工具。 go开发工具 github.com/segmentio/golines： 用来将长行代码格式化为短的代码 goimports delve shadow：用来检测变量， go get -u golang.org/x/tools/go/analysis/passes/shadow/cmd/shadow go vet -vettool=$(which shadow) go开发的工具……
+        </div>
+        <p class="readmore"><a href="https://damonchen.github.io/post/golang/golang-tool/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://damonchen.github.io/post/k8s/install/" title="k8s-环境搭建">k8s-环境搭建</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2021年3月25日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='/categories/k8s'>k8s</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            搭建方式 学习环境，通过minikube 生产环境，通过kubeadm 本文档使用kubeadm来搭建 基础环境 采用CentOS7系统，系统配置2C4G40G IP 说明 192.168.50.230 master 192.168.50.231 node1 192.168.50.232 Node2 系统设置 网络配置 (注意，虚机要配置成桥接模式) 1 2 3 4 5 6 7 8 9 vi /etc/sysconfig/network-scripts/ifcfg-ens33 .... BOOTPROTO=&#34;static&#34; ONBOOT=&#34;yes&#34; ..... IPADDR=192.168.50.230 NETMASK=255.255.255.0 GATEWAY=192.168.50.1 重启网络 1 systemctl start network 设置主机名称 1……
+        </div>
+        <p class="readmore"><a href="https://damonchen.github.io/post/k8s/install/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://damonchen.github.io/post/pcap-filter-syntax/" title="Pcap Filter Syntax">Pcap Filter Syntax</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2021年3月25日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='/categories/linux'>linux</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            pcap是一个广泛被使用的库，所以pcap对应的过滤器也是广泛应用在各种工具中。 基本组成 过滤器表达式由一个或多个primitives（原语） type：id或者number表示的type，可以为：host,net,port,portrange，如果没有指定type，使用host di……
+        </div>
+        <p class="readmore"><a href="https://damonchen.github.io/post/pcap-filter-syntax/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://damonchen.github.io/post/golang/go-graceful-restart/" title="Go Graceful Restart">Go Graceful Restart</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2021年3月25日
+        </date>
+        
+        <div class="post-content">
+            目标 热更新通常有如下目标： 正在处理中的连接不能断，需要继续提供服务 当重启后，socket要提供新的服务 目前的方案有： 类似nginx那样的方式，通过信号控制 可以在4层负载均衡中进行切换 已知的可用的库 库名 方式……
+        </div>
+        <p class="readmore"><a href="https://damonchen.github.io/post/golang/go-graceful-restart/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://damonchen.github.io/post/books/booklist/" title="读书列表">读书列表</a>
             </h1>
         </header>
@@ -103,7 +236,7 @@
         </div>
         
         <div class="post-content">
-            有很多命令行工具，非常有用，此处列之，以备查看 网络 mtr：查看你的网络哪里出问题了 tshark：wireshark中附带的命令行工具 文本 jq: 终端下json的query，awk的翻版 bat：高亮显示文本 rg：快速搜索……
+            有很多命令行工具，非常有用，此处列之，以备查看 终端 zimfw （将oh-my-zsh去掉了，太慢了） zmodule romkatv/powerlevel10k 改造git的别名为oh-my-zsh fzf autojump tmux 网络 mtr：查看你的网络哪里出问题了 tshark：wireshark中附带的命令行工具 文本 jq: 终端下json的query，awk的翻版 bat：高亮……
         </div>
         <p class="readmore"><a href="https://damonchen.github.io/post/tools/commands-intro/">阅读全文</a></p>
     </article>
@@ -129,167 +262,6 @@
             侯捷在《深入浅出MFC》中有一言： 工欲善其事，必先利其器 技术开发的本质，是需要更高效的完成一些工作，所以更高效的工作是一个技术开发者必须追求的事情，本文记录下一些非常不错的软件及命令工具 来源 github 少数派 知乎 利器 终端 iterm2 + zsh + tmux Jetbrains Goland： Go开发工具 PyCharm： Python开发……
         </div>
         <p class="readmore"><a href="https://damonchen.github.io/post/tools/most-use-tool/">阅读全文</a></p>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://damonchen.github.io/post/how-to-choose-tech-for-developing/" title="如何进行技术选型">如何进行技术选型</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2021年3月25日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='/categories/%E6%9D%82%E8%B0%88'>杂谈</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            对于开发而言，技术选型是重中之重，然而实际经历过的选型大概有这么几种 我就只知道这种技术，没得选 我听过某个很热门，就选那种 网上搜到某个问题可以用某个技术解决，就这了。 经过仔细研究调查，然后选择某种 刚毕业的时候在小公司时，基本上就只会第一二三种方式来进行选型，熬过几年，有人提点后，才……
-        </div>
-        <p class="readmore"><a href="https://damonchen.github.io/post/how-to-choose-tech-for-developing/">阅读全文</a></p>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://damonchen.github.io/post/go-asm-1/" title="将Go编译为Plan9的汇编代码">将Go编译为Plan9的汇编代码</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2021年3月25日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='/categories/go'>go</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            源代码到汇编 假设在main.go文件中有如下代码： 1 2 3 4 5 6 7 8 9 package main func add(a, b int) int { return a + b } func main() { println(add(5,7)) } 可以使用如下方式编译出汇编代码： 1 GOOS=linux GOARCH=amd64 go tool compile -S main.go 将得到如下的信息： &quot;&quot;.add STEXT nosplit size=19 args=0x18 locals=0x0 funcid=0x0 0x0000 00000 (main.go:3) TEXT &quot;&quot;.add(SB), NOSPLIT|ABIInternal, $0-24 0x0000 00000 (main.go:3) FUNCDATA $0, gclocals·33cdeccccebe80329f1fdbee7f5……
-        </div>
-        <p class="readmore"><a href="https://damonchen.github.io/post/go-asm-1/">阅读全文</a></p>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://damonchen.github.io/post/understand-rest/" title="Understand Rest">Understand Rest</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2016年7月17日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='/categories/%E6%9D%82%E8%B0%88'>杂谈</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            理解REST REST(Representational State Transfer：表述性状态传递)，由Roy Fielding在他2000年时的 博士论文中引入和定义的。 REST是为分布式定义的一个架构形式，它不是一个标准，但有一些限制：如状态，client/server关系，统一的接口形式。 REST通常用HTTP实现。 REST原……
-        </div>
-        <p class="readmore"><a href="https://damonchen.github.io/post/understand-rest/">阅读全文</a></p>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://damonchen.github.io/post/async-promise-model/" title="Async Promise Model">Async Promise Model</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2016年7月16日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='/categories/%E5%89%8D%E7%AB%AF'>前端</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            异步编程的Promise模式 promise 代表了一个种可能会长时间运行而且不一定必须完成的操作结果。这种模式不会阻塞和等待长时间的操作完成， 而是返回了一个代表承诺的(promised)结果的对象。 promise的模式在任何时刻都处于以下三种状态之一：未完成(unfulfilled)，已完成(……
-        </div>
-        <p class="readmore"><a href="https://damonchen.github.io/post/async-promise-model/">阅读全文</a></p>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://damonchen.github.io/post/docker-compose-start/" title="Docker Compose Start">Docker Compose Start</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2016年7月7日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='/categories/docker'>docker</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            docker启动时不同镜像之间的链接的处理是比较麻烦的，所以官方目前有一个docker-compose用来做这些事情，官方给的例子是这样的。 构建一个Web应用 官方使用Python下的Flask框架构建的应用，创建了一个app.py的文件： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 from flask import Flask from redis……
-        </div>
-        <p class="readmore"><a href="https://damonchen.github.io/post/docker-compose-start/">阅读全文</a></p>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://damonchen.github.io/post/golang-with-uint64-problems/" title="Go中使用uint64遇到的问题">Go中使用uint64遇到的问题</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2016年7月6日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='/categories/go'>go</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            因为设计的缘故，我们内部系统使用了不少了uint64，同时也带来了很多问题： 在Go的mysql实现中，对于uint64的转换，是分两部分的，具体代码（https://github.com/go-sql-driver/mysql/blob/master/packets.go#113……
-        </div>
-        <p class="readmore"><a href="https://damonchen.github.io/post/golang-with-uint64-problems/">阅读全文</a></p>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://damonchen.github.io/post/golang-routine-id/" title="Golang Routine Id">Golang Routine Id</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2016年7月5日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='/categories/go'>go</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            在Go中，系统是不提供goroutine的id给外界的，丫的认为这事情不应该提供给用户来使用。 可有时候，实在是觉得这个东西必须得有呀，比方说后台开了个goroutine进行http请求的处理，这个免不了要打个日志什么的， 当并发量稍微大点的时候，就会发现这些信息的输出就交叉错乱在一……
-        </div>
-        <p class="readmore"><a href="https://damonchen.github.io/post/golang-routine-id/">阅读全文</a></p>
     </article>
     
     
@@ -370,6 +342,34 @@
 <ul class="widget-list">
     
     <li>
+        <a href="https://damonchen.github.io/post/k8s/tools/" title="k8s相关的工具">k8s相关的工具</a>
+    </li>
+    
+    <li>
+        <a href="https://damonchen.github.io/post/golang/golang-graceful-lib/" title="go的库收集">go的库收集</a>
+    </li>
+    
+    <li>
+        <a href="https://damonchen.github.io/post/golang/golang-trips/" title="Golang Trips">Golang Trips</a>
+    </li>
+    
+    <li>
+        <a href="https://damonchen.github.io/post/golang/golang-tool/" title="Go语言相关的工具">Go语言相关的工具</a>
+    </li>
+    
+    <li>
+        <a href="https://damonchen.github.io/post/k8s/install/" title="k8s-环境搭建">k8s-环境搭建</a>
+    </li>
+    
+    <li>
+        <a href="https://damonchen.github.io/post/pcap-filter-syntax/" title="Pcap Filter Syntax">Pcap Filter Syntax</a>
+    </li>
+    
+    <li>
+        <a href="https://damonchen.github.io/post/golang/go-graceful-restart/" title="Go Graceful Restart">Go Graceful Restart</a>
+    </li>
+    
+    <li>
         <a href="https://damonchen.github.io/post/books/booklist/" title="读书列表">读书列表</a>
     </li>
     
@@ -379,34 +379,6 @@
     
     <li>
         <a href="https://damonchen.github.io/post/tools/most-use-tool/" title="常用工具">常用工具</a>
-    </li>
-    
-    <li>
-        <a href="https://damonchen.github.io/post/how-to-choose-tech-for-developing/" title="如何进行技术选型">如何进行技术选型</a>
-    </li>
-    
-    <li>
-        <a href="https://damonchen.github.io/post/go-asm-1/" title="将Go编译为Plan9的汇编代码">将Go编译为Plan9的汇编代码</a>
-    </li>
-    
-    <li>
-        <a href="https://damonchen.github.io/post/understand-rest/" title="Understand Rest">Understand Rest</a>
-    </li>
-    
-    <li>
-        <a href="https://damonchen.github.io/post/async-promise-model/" title="Async Promise Model">Async Promise Model</a>
-    </li>
-    
-    <li>
-        <a href="https://damonchen.github.io/post/docker-compose-start/" title="Docker Compose Start">Docker Compose Start</a>
-    </li>
-    
-    <li>
-        <a href="https://damonchen.github.io/post/golang-with-uint64-problems/" title="Go中使用uint64遇到的问题">Go中使用uint64遇到的问题</a>
-    </li>
-    
-    <li>
-        <a href="https://damonchen.github.io/post/golang-routine-id/" title="Golang Routine Id">Golang Routine Id</a>
     </li>
     
 </ul>
@@ -422,7 +394,9 @@
     
     <li><a href="https://damonchen.github.io/categories/go/">go (4)</a></li>
     
-    <li><a href="https://damonchen.github.io/categories/linux/">linux (3)</a></li>
+    <li><a href="https://damonchen.github.io/categories/k8s/">k8s (2)</a></li>
+    
+    <li><a href="https://damonchen.github.io/categories/linux/">linux (4)</a></li>
     
     <li><a href="https://damonchen.github.io/categories/%E5%89%8D%E7%AB%AF/">前端 (1)</a></li>
     
@@ -447,7 +421,11 @@
     
     <a href="https://damonchen.github.io/tags/go/">go</a>
     
+    <a href="https://damonchen.github.io/tags/k8s/">k8s</a>
+    
     <a href="https://damonchen.github.io/tags/linux/">linux</a>
+    
+    <a href="https://damonchen.github.io/tags/network/">network</a>
     
     <a href="https://damonchen.github.io/tags/promise/">promise</a>
     

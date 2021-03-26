@@ -6,7 +6,70 @@
     <description>Recent content on DamonChen Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 25 Mar 2021 16:59:07 +0800</lastBuildDate><atom:link href="https://damonchen.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 26 Mar 2021 14:35:39 +0800</lastBuildDate><atom:link href="https://damonchen.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>k8s相关的工具</title>
+      <link>https://damonchen.github.io/post/k8s/tools/</link>
+      <pubDate>Fri, 26 Mar 2021 14:35:39 +0800</pubDate>
+      
+      <guid>https://damonchen.github.io/post/k8s/tools/</guid>
+      <description>k8s有一系列相关的工具 祖传的 kubeadm kubelet kubectl minkube 便捷使用 k9s kubenvz （管理kubectl, kustomize, helm, helmfile版本）</description>
+    </item>
+    
+    <item>
+      <title>go的库收集</title>
+      <link>https://damonchen.github.io/post/golang/golang-graceful-lib/</link>
+      <pubDate>Fri, 26 Mar 2021 12:36:13 +0800</pubDate>
+      
+      <guid>https://damonchen.github.io/post/golang/golang-graceful-lib/</guid>
+      <description>自己维护的一份go的库 暂定 dst: 一个优秀golang的ast库，可保留注释位置 jennifer: 一个用来做generator的库，配合dst更好使</description>
+    </item>
+    
+    <item>
+      <title>Golang Trips</title>
+      <link>https://damonchen.github.io/post/golang/golang-trips/</link>
+      <pubDate>Fri, 26 Mar 2021 12:26:01 +0800</pubDate>
+      
+      <guid>https://damonchen.github.io/post/golang/golang-trips/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Go语言相关的工具</title>
+      <link>https://damonchen.github.io/post/golang/golang-tool/</link>
+      <pubDate>Fri, 26 Mar 2021 12:14:50 +0800</pubDate>
+      
+      <guid>https://damonchen.github.io/post/golang/golang-tool/</guid>
+      <description>记录分两大块，一块是用来对go本身的工具，另一块是用go编写的一些工具，基本都是命令行工具。 go开发工具 github.com/segmentio/golines： 用来将长行代码格式化为短的代码 goimports delve shadow：用来检测变量， go get -u golang.org/x/tools/go/analysis/passes/shadow/cmd/shadow go vet -vettool=$(which shadow) go开发的工具</description>
+    </item>
+    
+    <item>
+      <title>k8s-环境搭建</title>
+      <link>https://damonchen.github.io/post/k8s/install/</link>
+      <pubDate>Thu, 25 Mar 2021 18:50:31 +0800</pubDate>
+      
+      <guid>https://damonchen.github.io/post/k8s/install/</guid>
+      <description>搭建方式 学习环境，通过minikube 生产环境，通过kubeadm 本文档使用kubeadm来搭建 基础环境 采用CentOS7系统，系统配置2C4G40G IP 说明 192.168.50.230 master 192.168.50.231 node1 192.168.50.232 Node2 系统设置 网络配置 (注意，虚机要配置成桥接模式) 1 2 3 4 5 6 7 8 9 vi /etc/sysconfig/network-scripts/ifcfg-ens33 .... BOOTPROTO=&amp;#34;static&amp;#34; ONBOOT=&amp;#34;yes&amp;#34; ..... IPADDR=192.168.50.230 NETMASK=255.255.255.0 GATEWAY=192.168.50.1 重启网络 1 systemctl start network 设置主机名称 1</description>
+    </item>
+    
+    <item>
+      <title>Pcap Filter Syntax</title>
+      <link>https://damonchen.github.io/post/pcap-filter-syntax/</link>
+      <pubDate>Thu, 25 Mar 2021 18:27:38 +0800</pubDate>
+      
+      <guid>https://damonchen.github.io/post/pcap-filter-syntax/</guid>
+      <description>pcap是一个广泛被使用的库，所以pcap对应的过滤器也是广泛应用在各种工具中。 基本组成 过滤器表达式由一个或多个primitives（原语） type：id或者number表示的type，可以为：host,net,port,portrange，如果没有指定type，使用host di</description>
+    </item>
+    
+    <item>
+      <title>Go Graceful Restart</title>
+      <link>https://damonchen.github.io/post/golang/go-graceful-restart/</link>
+      <pubDate>Thu, 25 Mar 2021 18:15:58 +0800</pubDate>
+      
+      <guid>https://damonchen.github.io/post/golang/go-graceful-restart/</guid>
+      <description>目标 热更新通常有如下目标： 正在处理中的连接不能断，需要继续提供服务 当重启后，socket要提供新的服务 目前的方案有： 类似nginx那样的方式，通过信号控制 可以在4层负载均衡中进行切换 已知的可用的库 库名 方式</description>
+    </item>
+    
     <item>
       <title>读书列表</title>
       <link>https://damonchen.github.io/post/books/booklist/</link>
@@ -22,7 +85,7 @@
       <pubDate>Thu, 25 Mar 2021 16:48:34 +0800</pubDate>
       
       <guid>https://damonchen.github.io/post/tools/commands-intro/</guid>
-      <description>有很多命令行工具，非常有用，此处列之，以备查看 网络 mtr：查看你的网络哪里出问题了 tshark：wireshark中附带的命令行工具 文本 jq: 终端下json的query，awk的翻版 bat：高亮显示文本 rg：快速搜索</description>
+      <description>有很多命令行工具，非常有用，此处列之，以备查看 终端 zimfw （将oh-my-zsh去掉了，太慢了） zmodule romkatv/powerlevel10k 改造git的别名为oh-my-zsh fzf autojump tmux 网络 mtr：查看你的网络哪里出问题了 tshark：wireshark中附带的命令行工具 文本 jq: 终端下json的query，awk的翻版 bat：高亮</description>
     </item>
     
     <item>
@@ -63,10 +126,10 @@
     
     <item>
       <title>将Go编译为Plan9的汇编代码</title>
-      <link>https://damonchen.github.io/post/go-asm-1/</link>
+      <link>https://damonchen.github.io/post/golang/go-asm-1/</link>
       <pubDate>Thu, 25 Mar 2021 14:28:54 +0800</pubDate>
       
-      <guid>https://damonchen.github.io/post/go-asm-1/</guid>
+      <guid>https://damonchen.github.io/post/golang/go-asm-1/</guid>
       <description>源代码到汇编 假设在main.go文件中有如下代码： 1 2 3 4 5 6 7 8 9 package main func add(a, b int) int { return a + b } func main() { println(add(5,7)) } 可以使用如下方式编译出汇编代码： 1 GOOS=linux GOARCH=amd64 go tool compile -S main.go 将得到如下的信息： &amp;quot;&amp;quot;.add STEXT nosplit size=19 args=0x18 locals=0x0 funcid=0x0 0x0000 00000 (main.go:3) TEXT &amp;quot;&amp;quot;.add(SB), NOSPLIT|ABIInternal, $0-24 0x0000 00000 (main.go:3) FUNCDATA $0, gclocals·33cdeccccebe80329f1fdbee7f5</description>
     </item>
     
@@ -99,19 +162,19 @@
     
     <item>
       <title>Go中使用uint64遇到的问题</title>
-      <link>https://damonchen.github.io/post/golang-with-uint64-problems/</link>
+      <link>https://damonchen.github.io/post/golang/golang-with-uint64-problems/</link>
       <pubDate>Wed, 06 Jul 2016 14:42:09 +0800</pubDate>
       
-      <guid>https://damonchen.github.io/post/golang-with-uint64-problems/</guid>
+      <guid>https://damonchen.github.io/post/golang/golang-with-uint64-problems/</guid>
       <description>因为设计的缘故，我们内部系统使用了不少了uint64，同时也带来了很多问题： 在Go的mysql实现中，对于uint64的转换，是分两部分的，具体代码（https://github.com/go-sql-driver/mysql/blob/master/packets.go#113</description>
     </item>
     
     <item>
       <title>Golang Routine Id</title>
-      <link>https://damonchen.github.io/post/golang-routine-id/</link>
+      <link>https://damonchen.github.io/post/golang/golang-routine-id/</link>
       <pubDate>Tue, 05 Jul 2016 14:42:22 +0800</pubDate>
       
-      <guid>https://damonchen.github.io/post/golang-routine-id/</guid>
+      <guid>https://damonchen.github.io/post/golang/golang-routine-id/</guid>
       <description>在Go中，系统是不提供goroutine的id给外界的，丫的认为这事情不应该提供给用户来使用。 可有时候，实在是觉得这个东西必须得有呀，比方说后台开了个goroutine进行http请求的处理，这个免不了要打个日志什么的， 当并发量稍微大点的时候，就会发现这些信息的输出就交叉错乱在一</description>
     </item>
     
@@ -126,10 +189,10 @@
     
     <item>
       <title>golang中几种加密方式的处理</title>
-      <link>https://damonchen.github.io/post/golang-encrypt-sample/</link>
+      <link>https://damonchen.github.io/post/golang/golang-encrypt-sample/</link>
       <pubDate>Mon, 04 Jul 2016 14:42:59 +0800</pubDate>
       
-      <guid>https://damonchen.github.io/post/golang-encrypt-sample/</guid>
+      <guid>https://damonchen.github.io/post/golang/golang-encrypt-sample/</guid>
       <description>缘由 在与第三方平台进行接入的时候，通常会存在一些签名或者加密的处理，在进行开发的时候，因为语言的 不同，需要按照规范进行相应处理。 DES加解密 DES：https://en.wikipedia.org/wiki/Data_Encryption_Standard golang中的标准库c</description>
     </item>
     

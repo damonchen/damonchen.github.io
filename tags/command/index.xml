@@ -13,7 +13,7 @@
       <pubDate>Thu, 25 Mar 2021 16:48:34 +0800</pubDate>
       
       <guid>https://damonchen.github.io/post/tools/commands-intro/</guid>
-      <description>有很多命令行工具，非常有用，此处列之，以备查看 网络 mtr：查看你的网络哪里出问题了 tshark：wireshark中附带的命令行工具 文本 jq: 终端下json的query，awk的翻版 bat：高亮显示文本 rg：快速搜索</description>
+      <description>有很多命令行工具，非常有用，此处列之，以备查看 终端 zimfw （将oh-my-zsh去掉了，太慢了） zmodule romkatv/powerlevel10k 改造git的别名为oh-my-zsh fzf autojump tmux 网络 mtr：查看你的网络哪里出问题了 tshark：wireshark中附带的命令行工具 文本 jq: 终端下json的query，awk的翻版 bat：高亮</description>
     </item>
     
     <item>
