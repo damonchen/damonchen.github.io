@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>docker on DamonChen Blog</title>
-    <link>https://damonchen.github.io/categories/docker/</link>
+    <link>https//damonchen.github.io/categories/docker/</link>
     <description>Recent content in docker on DamonChen Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 07 Jul 2016 14:41:50 +0800</lastBuildDate><atom:link href="https://damonchen.github.io/categories/docker/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Jul 2016 14:41:50 +0800</lastBuildDate><atom:link href="https//damonchen.github.io/categories/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Docker Compose Start</title>
-      <link>https://damonchen.github.io/post/docker-compose-start/</link>
+      <link>https//damonchen.github.io/post/docker-compose-start/</link>
       <pubDate>Thu, 07 Jul 2016 14:41:50 +0800</pubDate>
       
-      <guid>https://damonchen.github.io/post/docker-compose-start/</guid>
+      <guid>https//damonchen.github.io/post/docker-compose-start/</guid>
       <description>docker启动时不同镜像之间的链接的处理是比较麻烦的，所以官方目前有一个docker-compose用来做这些事情，官方给的例子是这样的。 构建一个Web应用 官方使用Python下的Flask框架构建的应用，创建了一个app.py的文件： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 from flask import Flask from redis</description>
     </item>
     

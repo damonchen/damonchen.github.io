@@ -2,141 +2,108 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://damonchen.github.io/categories/</loc>
-    <lastmod>2021-03-26T14:35:39+08:00</lastmod>
-  </url><url>
-    <loc>https://damonchen.github.io/</loc>
-    <lastmod>2021-03-26T14:35:39+08:00</lastmod>
-  </url><url>
-    <loc>https://damonchen.github.io/tags/k8s/</loc>
-    <lastmod>2021-03-26T14:35:39+08:00</lastmod>
-  </url><url>
-    <loc>https://damonchen.github.io/categories/k8s/</loc>
-    <lastmod>2021-03-26T14:35:39+08:00</lastmod>
-  </url><url>
-    <loc>https://damonchen.github.io/post/k8s/tools/</loc>
-    <lastmod>2021-03-26T14:35:39+08:00</lastmod>
-  </url><url>
-    <loc>https://damonchen.github.io/post/</loc>
-    <lastmod>2021-03-26T14:35:39+08:00</lastmod>
-  </url><url>
-    <loc>https://damonchen.github.io/tags/</loc>
-    <lastmod>2021-03-26T14:35:39+08:00</lastmod>
-  </url><url>
-    <loc>https://damonchen.github.io/post/golang/golang-graceful-lib/</loc>
-    <lastmod>2021-03-26T12:36:13+08:00</lastmod>
-  </url><url>
-    <loc>https://damonchen.github.io/post/golang/golang-trips/</loc>
-    <lastmod>2021-03-26T12:26:01+08:00</lastmod>
-  </url><url>
-    <loc>https://damonchen.github.io/post/golang/golang-tool/</loc>
-    <lastmod>2021-03-26T12:14:50+08:00</lastmod>
-  </url><url>
-    <loc>https://damonchen.github.io/post/k8s/install/</loc>
+    <loc>https//damonchen.github.io/categories/</loc>
     <lastmod>2021-03-25T18:50:31+08:00</lastmod>
   </url><url>
-    <loc>https://damonchen.github.io/tags/linux/</loc>
-    <lastmod>2021-03-25T18:27:38+08:00</lastmod>
+    <loc>https//damonchen.github.io/</loc>
+    <lastmod>2021-03-25T18:50:31+08:00</lastmod>
   </url><url>
-    <loc>https://damonchen.github.io/categories/linux/</loc>
-    <lastmod>2021-03-25T18:27:38+08:00</lastmod>
+    <loc>https//damonchen.github.io/tags/k8s/</loc>
+    <lastmod>2021-03-25T18:50:31+08:00</lastmod>
   </url><url>
-    <loc>https://damonchen.github.io/tags/network/</loc>
-    <lastmod>2021-03-25T18:27:38+08:00</lastmod>
+    <loc>https//damonchen.github.io/categories/k8s/</loc>
+    <lastmod>2021-03-25T18:50:31+08:00</lastmod>
   </url><url>
-    <loc>https://damonchen.github.io/post/pcap-filter-syntax/</loc>
-    <lastmod>2021-03-25T18:27:38+08:00</lastmod>
+    <loc>https//damonchen.github.io/post/k8s/install/</loc>
+    <lastmod>2021-03-25T18:50:31+08:00</lastmod>
   </url><url>
-    <loc>https://damonchen.github.io/post/golang/go-graceful-restart/</loc>
-    <lastmod>2021-03-25T18:15:58+08:00</lastmod>
+    <loc>https//damonchen.github.io/post/</loc>
+    <lastmod>2021-03-25T18:50:31+08:00</lastmod>
   </url><url>
-    <loc>https://damonchen.github.io/post/books/booklist/</loc>
+    <loc>https//damonchen.github.io/tags/</loc>
+    <lastmod>2021-03-25T18:50:31+08:00</lastmod>
+  </url><url>
+    <loc>https//damonchen.github.io/post/books/booklist/</loc>
     <lastmod>2021-03-25T16:59:07+08:00</lastmod>
   </url><url>
-    <loc>https://damonchen.github.io/tags/command/</loc>
+    <loc>https//damonchen.github.io/tags/command/</loc>
     <lastmod>2021-03-25T16:48:34+08:00</lastmod>
   </url><url>
-    <loc>https://damonchen.github.io/post/tools/commands-intro/</loc>
+    <loc>https//damonchen.github.io/tags/linux/</loc>
     <lastmod>2021-03-25T16:48:34+08:00</lastmod>
   </url><url>
-    <loc>https://damonchen.github.io/tags/app/</loc>
+    <loc>https//damonchen.github.io/categories/linux/</loc>
+    <lastmod>2021-03-25T16:48:34+08:00</lastmod>
+  </url><url>
+    <loc>https//damonchen.github.io/post/tools/commands-intro/</loc>
+    <lastmod>2021-03-25T16:48:34+08:00</lastmod>
+  </url><url>
+    <loc>https//damonchen.github.io/tags/app/</loc>
     <lastmod>2021-03-25T16:34:05+08:00</lastmod>
   </url><url>
-    <loc>https://damonchen.github.io/post/tools/most-use-tool/</loc>
+    <loc>https//damonchen.github.io/post/tools/most-use-tool/</loc>
     <lastmod>2021-03-25T16:34:05+08:00</lastmod>
   </url><url>
-    <loc>https://damonchen.github.io/archive/</loc>
-    <lastmod>2021-03-25T15:20:19+08:00</lastmod>
-  </url><url>
-    <loc>https://damonchen.github.io/about/</loc>
+    <loc>https//damonchen.github.io/about/</loc>
     <lastmod>2021-03-25T14:42:22+08:00</lastmod>
   </url><url>
-    <loc>https://damonchen.github.io/post/how-to-choose-tech-for-developing/</loc>
-    <lastmod>2021-03-25T14:41:34+08:00</lastmod>
-  </url><url>
-    <loc>https://damonchen.github.io/tags/%E6%9D%82%E8%B0%88/</loc>
-    <lastmod>2021-03-25T14:41:34+08:00</lastmod>
-  </url><url>
-    <loc>https://damonchen.github.io/categories/%E6%9D%82%E8%B0%88/</loc>
-    <lastmod>2021-03-25T14:41:34+08:00</lastmod>
-  </url><url>
-    <loc>https://damonchen.github.io/tags/go/</loc>
+    <loc>https//damonchen.github.io/tags/go/</loc>
     <lastmod>2021-03-25T14:28:54+08:00</lastmod>
   </url><url>
-    <loc>https://damonchen.github.io/categories/go/</loc>
+    <loc>https//damonchen.github.io/categories/go/</loc>
     <lastmod>2021-03-25T14:28:54+08:00</lastmod>
   </url><url>
-    <loc>https://damonchen.github.io/post/golang/go-asm-1/</loc>
+    <loc>https//damonchen.github.io/post/golang/go-asm-1/</loc>
     <lastmod>2021-03-25T14:28:54+08:00</lastmod>
   </url><url>
-    <loc>https://damonchen.github.io/tags/design/</loc>
+    <loc>https//damonchen.github.io/tags/design/</loc>
     <lastmod>2016-07-17T14:40:43+08:00</lastmod>
   </url><url>
-    <loc>https://damonchen.github.io/tags/tech/</loc>
+    <loc>https//damonchen.github.io/tags/tech/</loc>
     <lastmod>2016-07-17T14:40:43+08:00</lastmod>
   </url><url>
-    <loc>https://damonchen.github.io/post/understand-rest/</loc>
+    <loc>https//damonchen.github.io/post/understand-rest/</loc>
     <lastmod>2016-07-17T14:40:43+08:00</lastmod>
   </url><url>
-    <loc>https://damonchen.github.io/post/async-promise-model/</loc>
+    <loc>https//damonchen.github.io/categories/%E6%9D%82%E8%B0%88/</loc>
+    <lastmod>2016-07-17T14:40:43+08:00</lastmod>
+  </url><url>
+    <loc>https//damonchen.github.io/post/async-promise-model/</loc>
     <lastmod>2016-07-16T14:41:09+08:00</lastmod>
   </url><url>
-    <loc>https://damonchen.github.io/tags/promise/</loc>
+    <loc>https//damonchen.github.io/tags/promise/</loc>
     <lastmod>2016-07-16T14:41:09+08:00</lastmod>
   </url><url>
-    <loc>https://damonchen.github.io/tags/%E5%89%8D%E7%AB%AF/</loc>
+    <loc>https//damonchen.github.io/tags/%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2016-07-16T14:41:09+08:00</lastmod>
   </url><url>
-    <loc>https://damonchen.github.io/categories/%E5%89%8D%E7%AB%AF/</loc>
+    <loc>https//damonchen.github.io/categories/%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2016-07-16T14:41:09+08:00</lastmod>
   </url><url>
-    <loc>https://damonchen.github.io/tags/docker/</loc>
+    <loc>https//damonchen.github.io/tags/docker/</loc>
     <lastmod>2016-07-07T14:41:50+08:00</lastmod>
   </url><url>
-    <loc>https://damonchen.github.io/categories/docker/</loc>
+    <loc>https//damonchen.github.io/categories/docker/</loc>
     <lastmod>2016-07-07T14:41:50+08:00</lastmod>
   </url><url>
-    <loc>https://damonchen.github.io/post/docker-compose-start/</loc>
+    <loc>https//damonchen.github.io/post/docker-compose-start/</loc>
     <lastmod>2016-07-07T14:41:50+08:00</lastmod>
   </url><url>
-    <loc>https://damonchen.github.io/post/golang/golang-with-uint64-problems/</loc>
+    <loc>https//damonchen.github.io/post/golang/golang-with-uint64-problems/</loc>
     <lastmod>2016-07-06T14:42:09+08:00</lastmod>
   </url><url>
-    <loc>https://damonchen.github.io/post/golang/golang-routine-id/</loc>
+    <loc>https//damonchen.github.io/post/golang/golang-routine-id/</loc>
     <lastmod>2016-07-05T14:42:22+08:00</lastmod>
   </url><url>
-    <loc>https://damonchen.github.io/tags/daemon/</loc>
+    <loc>https//damonchen.github.io/tags/daemon/</loc>
     <lastmod>2016-07-04T14:43:10+08:00</lastmod>
   </url><url>
-    <loc>https://damonchen.github.io/post/daemon-process/</loc>
+    <loc>https//damonchen.github.io/post/daemon-process/</loc>
     <lastmod>2016-07-04T14:43:10+08:00</lastmod>
   </url><url>
-    <loc>https://damonchen.github.io/post/golang/golang-encrypt-sample/</loc>
+    <loc>https//damonchen.github.io/post/golang/golang-encrypt-sample/</loc>
     <lastmod>2016-07-04T14:42:59+08:00</lastmod>
   </url><url>
-    <loc>https://damonchen.github.io/post/ugly-go-polymorphic/</loc>
-    <lastmod>2016-07-04T14:42:47+08:00</lastmod>
-  </url><url>
-    <loc>https://damonchen.github.io/search/</loc>
+    <loc>https//damonchen.github.io/search/</loc>
   </url>
 </urlset>

@@ -2,44 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>linux on DamonChen Blog</title>
-    <link>https://damonchen.github.io/categories/linux/</link>
+    <link>https//damonchen.github.io/categories/linux/</link>
     <description>Recent content in linux on DamonChen Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 25 Mar 2021 18:27:38 +0800</lastBuildDate><atom:link href="https://damonchen.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Pcap Filter Syntax</title>
-      <link>https://damonchen.github.io/post/pcap-filter-syntax/</link>
-      <pubDate>Thu, 25 Mar 2021 18:27:38 +0800</pubDate>
-      
-      <guid>https://damonchen.github.io/post/pcap-filter-syntax/</guid>
-      <description>pcap是一个广泛被使用的库，所以pcap对应的过滤器也是广泛应用在各种工具中。 基本组成 过滤器表达式由一个或多个primitives（原语） type：id或者number表示的type，可以为：host,net,port,portrange，如果没有指定type，使用host di</description>
-    </item>
-    
+    <lastBuildDate>Thu, 25 Mar 2021 16:48:34 +0800</lastBuildDate><atom:link href="https//damonchen.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>你应该用的一些命令行</title>
-      <link>https://damonchen.github.io/post/tools/commands-intro/</link>
+      <link>https//damonchen.github.io/post/tools/commands-intro/</link>
       <pubDate>Thu, 25 Mar 2021 16:48:34 +0800</pubDate>
       
-      <guid>https://damonchen.github.io/post/tools/commands-intro/</guid>
+      <guid>https//damonchen.github.io/post/tools/commands-intro/</guid>
       <description>有很多命令行工具，非常有用，此处列之，以备查看 终端 zimfw （将oh-my-zsh去掉了，太慢了） zmodule romkatv/powerlevel10k 改造git的别名为oh-my-zsh fzf autojump tmux 网络 mtr：查看你的网络哪里出问题了 tshark：wireshark中附带的命令行工具 文本 jq: 终端下json的query，awk的翻版 bat：高亮</description>
     </item>
     
     <item>
       <title>常用工具</title>
-      <link>https://damonchen.github.io/post/tools/most-use-tool/</link>
+      <link>https//damonchen.github.io/post/tools/most-use-tool/</link>
       <pubDate>Thu, 25 Mar 2021 16:34:05 +0800</pubDate>
       
-      <guid>https://damonchen.github.io/post/tools/most-use-tool/</guid>
+      <guid>https//damonchen.github.io/post/tools/most-use-tool/</guid>
       <description>侯捷在《深入浅出MFC》中有一言： 工欲善其事，必先利其器 技术开发的本质，是需要更高效的完成一些工作，所以更高效的工作是一个技术开发者必须追求的事情，本文记录下一些非常不错的软件及命令工具 来源 github 少数派 知乎 利器 终端 iterm2 + zsh + tmux Jetbrains Goland： Go开发工具 PyCharm： Python开发</description>
     </item>
     
     <item>
       <title>linux标准daemon编写方式</title>
-      <link>https://damonchen.github.io/post/daemon-process/</link>
+      <link>https//damonchen.github.io/post/daemon-process/</link>
       <pubDate>Mon, 04 Jul 2016 14:43:10 +0800</pubDate>
       
-      <guid>https://damonchen.github.io/post/daemon-process/</guid>
+      <guid>https//damonchen.github.io/post/daemon-process/</guid>
       <description>daemon定义 运行在后台的程序，通常不需要与用户进行交互的。 任何父进程id是0的通常是kernel进程，作为系统启动的一部分，除了init是用户态的命令。 规则 第一件事情是调用umask设置文件模型的mask为0，文件mode creation mask可以被进程继承，但daemon进程需要创建文</description>
     </item>
     

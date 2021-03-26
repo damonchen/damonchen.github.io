@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>design on DamonChen Blog</title>
-    <link>https://damonchen.github.io/tags/design/</link>
+    <link>https//damonchen.github.io/tags/design/</link>
     <description>Recent content in design on DamonChen Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 17 Jul 2016 14:40:43 +0800</lastBuildDate><atom:link href="https://damonchen.github.io/tags/design/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Jul 2016 14:40:43 +0800</lastBuildDate><atom:link href="https//damonchen.github.io/tags/design/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Understand Rest</title>
-      <link>https://damonchen.github.io/post/understand-rest/</link>
+      <link>https//damonchen.github.io/post/understand-rest/</link>
       <pubDate>Sun, 17 Jul 2016 14:40:43 +0800</pubDate>
       
-      <guid>https://damonchen.github.io/post/understand-rest/</guid>
+      <guid>https//damonchen.github.io/post/understand-rest/</guid>
       <description>理解REST REST(Representational State Transfer：表述性状态传递)，由Roy Fielding在他2000年时的 博士论文中引入和定义的。 REST是为分布式定义的一个架构形式，它不是一个标准，但有一些限制：如状态，client/server关系，统一的接口形式。 REST通常用HTTP实现。 REST原</description>
     </item>
     

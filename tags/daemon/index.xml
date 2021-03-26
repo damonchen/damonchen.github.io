@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>daemon on DamonChen Blog</title>
-    <link>https://damonchen.github.io/tags/daemon/</link>
+    <link>https//damonchen.github.io/tags/daemon/</link>
     <description>Recent content in daemon on DamonChen Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 04 Jul 2016 14:43:10 +0800</lastBuildDate><atom:link href="https://damonchen.github.io/tags/daemon/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 04 Jul 2016 14:43:10 +0800</lastBuildDate><atom:link href="https//damonchen.github.io/tags/daemon/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>linux标准daemon编写方式</title>
-      <link>https://damonchen.github.io/post/daemon-process/</link>
+      <link>https//damonchen.github.io/post/daemon-process/</link>
       <pubDate>Mon, 04 Jul 2016 14:43:10 +0800</pubDate>
       
-      <guid>https://damonchen.github.io/post/daemon-process/</guid>
+      <guid>https//damonchen.github.io/post/daemon-process/</guid>
       <description>daemon定义 运行在后台的程序，通常不需要与用户进行交互的。 任何父进程id是0的通常是kernel进程，作为系统启动的一部分，除了init是用户态的命令。 规则 第一件事情是调用umask设置文件模型的mask为0，文件mode creation mask可以被进程继承，但daemon进程需要创建文</description>
     </item>
     

@@ -2,26 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>杂谈 on DamonChen Blog</title>
-    <link>https://damonchen.github.io/categories/%E6%9D%82%E8%B0%88/</link>
+    <link>https//damonchen.github.io/categories/%E6%9D%82%E8%B0%88/</link>
     <description>Recent content in 杂谈 on DamonChen Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 25 Mar 2021 14:41:34 +0800</lastBuildDate><atom:link href="https://damonchen.github.io/categories/%E6%9D%82%E8%B0%88/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>如何进行技术选型</title>
-      <link>https://damonchen.github.io/post/how-to-choose-tech-for-developing/</link>
-      <pubDate>Thu, 25 Mar 2021 14:41:34 +0800</pubDate>
-      
-      <guid>https://damonchen.github.io/post/how-to-choose-tech-for-developing/</guid>
-      <description>对于开发而言，技术选型是重中之重，然而实际经历过的选型大概有这么几种 我就只知道这种技术，没得选 我听过某个很热门，就选那种 网上搜到某个问题可以用某个技术解决，就这了。 经过仔细研究调查，然后选择某种 刚毕业的时候在小公司时，基本上就只会第一二三种方式来进行选型，熬过几年，有人提点后，才</description>
-    </item>
-    
+    <lastBuildDate>Sun, 17 Jul 2016 14:40:43 +0800</lastBuildDate><atom:link href="https//damonchen.github.io/categories/%E6%9D%82%E8%B0%88/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Understand Rest</title>
-      <link>https://damonchen.github.io/post/understand-rest/</link>
+      <link>https//damonchen.github.io/post/understand-rest/</link>
       <pubDate>Sun, 17 Jul 2016 14:40:43 +0800</pubDate>
       
-      <guid>https://damonchen.github.io/post/understand-rest/</guid>
+      <guid>https//damonchen.github.io/post/understand-rest/</guid>
       <description>理解REST REST(Representational State Transfer：表述性状态传递)，由Roy Fielding在他2000年时的 博士论文中引入和定义的。 REST是为分布式定义的一个架构形式，它不是一个标准，但有一些限制：如状态，client/server关系，统一的接口形式。 REST通常用HTTP实现。 REST原</description>
     </item>
     

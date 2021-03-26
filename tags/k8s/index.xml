@@ -2,26 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>k8s on DamonChen Blog</title>
-    <link>https://damonchen.github.io/tags/k8s/</link>
+    <link>https//damonchen.github.io/tags/k8s/</link>
     <description>Recent content in k8s on DamonChen Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 26 Mar 2021 14:35:39 +0800</lastBuildDate><atom:link href="https://damonchen.github.io/tags/k8s/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>k8s相关的工具</title>
-      <link>https://damonchen.github.io/post/k8s/tools/</link>
-      <pubDate>Fri, 26 Mar 2021 14:35:39 +0800</pubDate>
-      
-      <guid>https://damonchen.github.io/post/k8s/tools/</guid>
-      <description>k8s有一系列相关的工具 祖传的 kubeadm kubelet kubectl minkube 便捷使用 k9s kubenvz （管理kubectl, kustomize, helm, helmfile版本）</description>
-    </item>
-    
+    <lastBuildDate>Thu, 25 Mar 2021 18:50:31 +0800</lastBuildDate><atom:link href="https//damonchen.github.io/tags/k8s/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>k8s-环境搭建</title>
-      <link>https://damonchen.github.io/post/k8s/install/</link>
+      <link>https//damonchen.github.io/post/k8s/install/</link>
       <pubDate>Thu, 25 Mar 2021 18:50:31 +0800</pubDate>
       
-      <guid>https://damonchen.github.io/post/k8s/install/</guid>
+      <guid>https//damonchen.github.io/post/k8s/install/</guid>
       <description>搭建方式 学习环境，通过minikube 生产环境，通过kubeadm 本文档使用kubeadm来搭建 基础环境 采用CentOS7系统，系统配置2C4G40G IP 说明 192.168.50.230 master 192.168.50.231 node1 192.168.50.232 Node2 系统设置 网络配置 (注意，虚机要配置成桥接模式) 1 2 3 4 5 6 7 8 9 vi /etc/sysconfig/network-scripts/ifcfg-ens33 .... BOOTPROTO=&amp;#34;static&amp;#34; ONBOOT=&amp;#34;yes&amp;#34; ..... IPADDR=192.168.50.230 NETMASK=255.255.255.0 GATEWAY=192.168.50.1 重启网络 1 systemctl start network 设置主机名称 1</description>
     </item>
     
